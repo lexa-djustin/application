@@ -12,6 +12,10 @@ $result = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $calculator = new Calculator($_POST);
     $result = $calculator->calculate();
+    if (isset($_POST['saveToXML'])) {
+        $xmlBuilder = new XMLBuilder($result);
+        $xmlBuilder->createFile();
+    }
 }
 
 $render = new Renderer('templates/main', null, ['data' => $result]);
