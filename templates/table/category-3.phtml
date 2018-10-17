@@ -1,9 +1,12 @@
+<? $row = 38; ?>
+
 <? for ($i = 1; $i <= 6; $i++) { ?>
     <tr>
         <td>
             Item <?= $i ?>
 
             <? if ($i === 4) { ?>
+                <? $row += 4;?>
                 <br><br>
                 <? for ($j = 1; $j <= 4; $j++) { ?>
                     <div style="margin-left: 50px;">sub item 4_<?= $j ?></div>
@@ -14,15 +17,17 @@
             <?= HTMLElements::input("category_3_description_{$i}", $this->data) ?>
         </td>
         <td>
-            <?= HTMLElements::input("category_3_value_{$i}_1", $this->data) ?>
+            <?= HTMLElements::input("d{$row}", $this->data) ?>
         </td>
         <td>
-            <?= HTMLElements::input("category_3_value_{$i}_2", $this->data) ?>
+            <?= HTMLElements::input("e{$row}", $this->data) ?>
         </td>
         <td>
-            <?= HTMLElements::input("category_3_value_{$i}_3", $this->data) ?>
+            <?= HTMLElements::input("f{$row}", $this->data) ?>
         </td>
     </tr>
+
+    <? $row++; ?>
 <? } ?>
 <tr>
     <td colspan="2">

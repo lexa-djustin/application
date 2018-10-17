@@ -8,5 +8,11 @@ require_once 'PHPExcel/classes/PHPExcel.php';
 require_once 'Autoloader.php';
 
 $result = [];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $calculator = new Calculator($_POST);
+    $result = $calculator->calculate();
+}
+
 $render = new Renderer('templates/main', null, ['data' => $result]);
 echo $render->render();

@@ -1,3 +1,5 @@
+<? $row = 61; ?>
+
 <? for ($i = 1; $i <= 5; $i++) { ?>
     <tr>
         <td>
@@ -7,16 +9,17 @@
             <?= HTMLElements::input("category_4_total_description_{$i}", $this->data) ?><br>
         </td>
         <td>
-            <?= HTMLElements::input("category_4_total_value_{$i}_1", $this->data) ?>
+            <?= HTMLElements::input("d{$row}", $this->data) ?>
         </td>
         <td>
-            <?= HTMLElements::input("category_4_total_value_{$i}_2", $this->data) ?>
+            <?= HTMLElements::input("e{$row}", $this->data) ?>
         </td>
         <td>
-            <?= HTMLElements::input("category_4_total_value_{$i}_3", $this->data) ?>
+            <?= HTMLElements::input("f{$row}", $this->data) ?>
         </td>
-
     </tr>
+
+    <? $row++; ?>
 <? } ?>
 <tr>
     <td colspan="2">

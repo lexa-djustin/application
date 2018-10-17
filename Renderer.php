@@ -64,7 +64,7 @@ class Renderer
      * @param Renderer|null $parent
      * @param array $params
      *
-     * @return string
+     * @return Renderer
      * @throws Exception
      */
     public static function factory($script, $parent = null, $params = [])
