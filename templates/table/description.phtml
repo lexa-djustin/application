@@ -1,0 +1,20 @@
+<? $i = 1; $j = 4; $rows = 3; ?>
+
+<table class="table table-bordered">
+    <tbody>
+        <? for($row = 1; $row <= $rows; $row++){ ?>
+            <tr>
+                <td>
+                    <span>Item <?= $i ?></span>
+                    <?= HTMLElements::input("description_{$row}_{$i}", $this->data) ?>
+                </td>
+                <td>
+                    <span>Item <?= $j ?></span>
+                    <?= HTMLElements::input("description_{$row}_{$j}", $this->data) ?>
+                </td>
+            </tr>
+
+            <? $i++; $j++; ?>
+        <? } ?>
+    </tbody>
+</table>
