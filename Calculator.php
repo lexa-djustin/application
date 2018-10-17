@@ -58,7 +58,8 @@ class Calculator
                 throw new Exception(sprintf('Key with name "%s" was not found', $key));
             }
 
-            $sum += $this->data[$key];
+            $value = (float) $this->data[$key];
+            $sum += $value;
         }
 
         return $sum;
@@ -79,7 +80,8 @@ class Calculator
                 throw new Exception(sprintf('Key with name "%s" was not found', $column));
             }
 
-            $sum += $this->data[$column];
+            $value = (float) $this->data[$column];
+            $sum += $value;
         }
 
         return $sum;

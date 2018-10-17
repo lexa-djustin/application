@@ -25,6 +25,7 @@ class HTMLElements
 
     /**
      * @param string $name
+     * @param array $data
      *
      * @return int|float|null
      */
