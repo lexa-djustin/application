@@ -28,7 +28,7 @@ class HTMLElements
      *
      * @return int|float|null
      */
-    public function result($name, array $data = [])
+    public static function result($name, array $data = [])
     {
         if (isset($data[$name])) {
             return $data[$name];
