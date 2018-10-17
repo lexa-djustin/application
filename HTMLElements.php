@@ -32,7 +32,7 @@ class HTMLElements
     public static function result($name, array $data = [])
     {
         if (isset($data[$name])) {
-            return $data[$name];
+            return '<b>' . $data[$name] . '</b>';
         }
 
         return null;

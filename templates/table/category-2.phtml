@@ -30,7 +30,11 @@
             <?= HTMLElements::input("e{$row}", $this->data) ?>
         </td>
         <td>
-            <?= HTMLElements::input("f{$row}", $this->data) ?>
+            <? if ("f{$row}" === 'f33' || "f{$row}" === 'f34') { ?>
+                <?= HTMLElements::result("f{$row}", $this->data) ?>
+            <? } else { ?>
+                <?= HTMLElements::input("f{$row}", $this->data) ?>
+            <? } ?>
         </td>
 
         <? $row++; ?>

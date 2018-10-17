@@ -6,7 +6,6 @@
             Item <?= $i ?>
 
             <? if ($i === 4) { ?>
-                <? $row += 4;?>
                 <br><br>
                 <? for ($j = 1; $j <= 4; $j++) { ?>
                     <div style="margin-left: 50px;">sub item 4_<?= $j ?></div>
@@ -21,8 +20,15 @@
             <?= HTMLElements::input("e{$row}", $this->data) ?>
         </td>
         <td>
-            <?= HTMLElements::input("f{$row}", $this->data) ?>
+            <? if ("f{$row}" === 'f38' || "f{$row}" === 'f39' || "f{$row}" === 'f40') { ?>
+                <?= HTMLElements::result("f{$row}", $this->data) ?>
+            <? } else { ?>
+                <?= HTMLElements::input("f{$row}", $this->data) ?>
+            <? } ?>
         </td>
+        <? if ($i === 4) { ?>
+            <? $row += 4; ?>
+        <? } ?>
     </tr>
 
     <? $row++; ?>
@@ -31,7 +37,7 @@
     <td colspan="2">
         <b>Category 3</b>
     </td>
-    <td><?= HTMLElements::result('', $this->data) ?></td>
-    <td><?= HTMLElements::result('', $this->data) ?></td>
-    <td><?= HTMLElements::result('', $this->data) ?></td>
+    <td><?= HTMLElements::result('d49', $this->data) ?></td>
+    <td><?= HTMLElements::result('e49', $this->data) ?></td>
+    <td><?= HTMLElements::result('f49', $this->data) ?></td>
 </tr>

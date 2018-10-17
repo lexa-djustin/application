@@ -1,25 +1,33 @@
-<? $row = 9; ?>
+<? $row = 9; $rows = 5; $last = false; ?>
 
-<? for ($i = 1; $i <= 4; $i++) { ?>
+<? for ($i = 1; $i <= $rows; $i++) { ?>
     <tr>
         <td>
-            Item <?= $i ?>
+            <?= !$last ? 'Item ' . $i : '' ?>
         </td>
         <td>
-            <?= HTMLElements::input("category_0_description_{$i}_1", $this->data) ?>
+            <?= !$last ? HTMLElements::input("c{$row}", $this->data) : '' ?>
         </td>
         <td>
             <?= HTMLElements::input("d{$row}", $this->data) ?>
         </td>
         <td>
-            <?= HTMLElements::input("e{$row}", $this->data) ?>
+            <? if ("e{$row}" === 'e12' || "e{$row}" === 'e13') { ?>
+                <?= HTMLElements::result("e{$row}", $this->data) ?>
+            <? } else { ?>
+                <?= HTMLElements::input("e{$row}", $this->data) ?>
+            <? } ?>
         </td>
         <td>
-            <?= HTMLElements::input("f{$row}", $this->data) ?>
+            <? if ("f{$row}" === 'f12' || "f{$row}" === 'f13') { ?>
+                <?= HTMLElements::result("f{$row}", $this->data) ?>
+            <? } else { ?>
+                <?= HTMLElements::input("f{$row}", $this->data) ?>
+            <? } ?>
         </td>
     </tr>
 
-    <? $row++; ?>
+    <? $row++; $last = $i === $rows - 1; ?>
 <? } ?>
 <tr>
     <td colspan="3"></td>
