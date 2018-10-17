@@ -2,11 +2,38 @@
 
 class HTMLElements
 {
-    public static function input($name = '', $value = '', array $attributes = [])
+    /**
+     * @param string $name
+     * @param array $data
+     * @param array $attributes
+     *
+     * @return string
+     */
+    public static function input($name = '', array $data, array $attributes = [])
     {
+        $value = '';
+
+        if (isset($data[$name])) {
+            $value = $data[$name];
+        }
+
         return
             '<div class="form-group">
-                <input class="form-control" type="text" name="text">
+                <input class="form-control" type="text" name="' . $name . '" value="' . $value . '">
             </div>';
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return int|float|null
+     */
+    public function result($name, array $data = [])
+    {
+        if (isset($data[$name])) {
+            return $data[$name];
+        }
+
+        return null;
     }
 }

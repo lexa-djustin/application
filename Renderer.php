@@ -5,7 +5,7 @@ class Renderer
     /**
      * @var array
      */
-    private $params;
+    private $__data;
 
     /**
      * @var string
@@ -13,23 +13,45 @@ class Renderer
     private $script;
 
     /**
-     * Renderer constructor.
-     * @param string $script
-     * @param array $params
+     * @var Renderer|null
      */
-    public function __construct($script, $params = [])
+    protected $parent;
+
+    /**
+     * @var string
+     */
+    private $ext = 'phtml';
+
+    /**
+     * Renderer constructor.
+     *
+     * @param string $script
+     * @param Renderer|null $parent
+     * @param array $data
+     */
+    public function __construct($script, $parent = null, $data = [])
     {
         $this->script = $script;
-        $this->params = $params;
+        $this->parent = $parent;
+        $this->__data = $data;
     }
 
     /**
      * @return string
+     * @throws Exception
      */
     public function render()
     {
         ob_start();
-        require($this->script);
+        $script = sprintf('%s.%s', $this->script, $this->ext);
+
+        if (!file_exists($script)) {
+            throw new Exception(sprintf(
+                'File with name "%s" was not found'
+            ));
+        }
+
+        require $script;
 
         $content = ob_get_contents();
         ob_end_clean();
@@ -38,13 +60,33 @@ class Renderer
     }
 
     /**
-     * @param $script
+     * @param string $script
+     * @param Renderer|null $parent
      * @param array $params
      *
      * @return string
+     * @throws Exception
      */
-    public static function partial($script, $params = [])
+    public static function partial($script, $parent = null, $params = [])
     {
-        return (new self($script, $params))->render();
+        return (new self($script, $parent, $params))->render();
+    }
+
+    /**
+     * @param $name
+     *
+     * @return mixed|null
+     */
+    public function __get($name)
+    {
+        if (!array_key_exists($name, $this->__data)) {
+            if ($this->parent) {
+                return $this->parent->{$name};
+            }
+
+            return null;
+        }
+
+        return $this->__data[$name];
     }
 }

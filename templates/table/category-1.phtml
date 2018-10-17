@@ -5,17 +5,17 @@
         </td>
         <td>
             <? for ($j = 1; $j <= 3; $j++) { ?>
-                <?= HTMLElements::input("category_b_description_{$i}_{$j}") ?><br>
+                <?= HTMLElements::input("category_b_description_{$i}_{$j}", $this->data) ?><br>
             <? } ?>
         </td>
         <td>
-            <?= HTMLElements::input("category_b_value_{$i}_1") ?>
+            <?= HTMLElements::input("category_b_value_{$i}_1", $this->data) ?>
         </td>
         <td>
-            <?= HTMLElements::input("category_b_value_{$i}_2") ?>
+            <?= HTMLElements::input("category_b_value_{$i}_2", $this->data) ?>
         </td>
         <td>
-            <?= HTMLElements::input("category_b_value_{$i}_3") ?>
+            <?= HTMLElements::input("category_b_value_{$i}_3", $this->data) ?>
         </td>
 
     </tr>
