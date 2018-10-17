@@ -101,7 +101,7 @@ class XMLBuilder
         header('Content-type: application/vnd.ms-excel');
 
         // It will be called file.xls
-        header("Content-Disposition: attachment; filename='" . $this->generateStreamFileName() . "'");
+        header("Content-Disposition: attachment; filename=" . $this->generateStreamFileName());
 
         // Write file to the browser
         $objWriter = PHPExcel_IOFactory::createWriter($this->_PHPExcel, $this->getFileType());
