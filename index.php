@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = array_merge($_POST, $result);
 
     if (isset($_POST['saveToXML'])) {
-        $xmlBuilder = new XMLBuilder($result);
+        $xmlBuilder = new EXCELBuilder($result);
         $xmlBuilder->createFile();
     }
 }

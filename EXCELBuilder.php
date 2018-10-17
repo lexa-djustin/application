@@ -1,6 +1,6 @@
 <?php
 
-class XMLBuilder
+class EXCELBuilder
 {
     /**
      * @var string
@@ -106,5 +106,6 @@ class XMLBuilder
         // Write file to the browser
         $objWriter = PHPExcel_IOFactory::createWriter($this->_PHPExcel, $this->getFileType());
         $objWriter->save('php://output');
+        exit();
     }
 }
