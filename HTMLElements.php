@@ -19,7 +19,7 @@ class HTMLElements
 
         return
             '<div class="form-group">
-                <input class="form-control" type="text" name="' . $name . '" value="' . $value . '">
+                <input class="form-control" ' . self::prepareAttributes($attributes) . ' type="text" name="' . $name . '" value="' . $value . '">
             </div>';
     }
 
@@ -35,5 +35,21 @@ class HTMLElements
         }
 
         return null;
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return string
+     */
+    public static function prepareAttributes(array $data)
+    {
+        $attributes = '';
+
+        foreach ($data as $name => $value) {
+            $attributes .= sprintf('%s="%s" ', $name, $value);
+        }
+
+        return trim($attributes);
     }
 }

@@ -1,12 +1,27 @@
-<? $row = 33; ?>
+<? $row = 31; ?>
 
-<? for ($i = 1; $i <= 2; $i++) { ?>
+
+
+<? for ($i = 1; $i <= 4; $i++) { ?>
     <tr>
         <td>
-            Item <?= $i ?>
+            <?
+            switch ($i){
+                case 1:
+                    echo 'Subcontracts (>100K AED)';
+                    break;
+                case 2:
+                    echo 'Subcontracts (<100K AED)';
+                    break;
+                default:
+                    echo 'Item ' . $i;
+            }
+            ?>
         </td>
         <td>
-            <?= HTMLElements::input("category_2_description_{$i}", $this->data) ?><br>
+            <? if ($i < 3) { ?>
+                <?= HTMLElements::input("category_2_description_{$i}", $this->data, ['placeholder' => '[name of subawrdee]']) ?><br>
+            <? } ?>
         </td>
         <td>
             <?= HTMLElements::input("d{$row}", $this->data) ?>
