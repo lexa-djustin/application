@@ -1,0 +1,30 @@
+<? for ($i = 1; $i <= 3; $i++) { ?>
+    <tr>
+        <td>
+            Item <?= $i ?>
+        </td>
+        <td>
+            <? for ($j = 1; $j <= 3; $j++) { ?>
+                <?= HTMLElements::input("category_b_description_{$i}_{$j}") ?><br>
+            <? } ?>
+        </td>
+        <td>
+            <?= HTMLElements::input("category_b_value_{$i}_1") ?>
+        </td>
+        <td>
+            <?= HTMLElements::input("category_b_value_{$i}_2") ?>
+        </td>
+        <td>
+            <?= HTMLElements::input("category_b_value_{$i}_3") ?>
+        </td>
+
+    </tr>
+<? } ?>
+<tr>
+    <td colspan="2">
+        <b>Category 1</b>
+    </td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+</tr>

@@ -1,0 +1,33 @@
+<? for ($i = 1; $i <= 4; $i++) { ?>
+    <tr>
+        <td>
+            Item <?= $i ?>
+        </td>
+        <td>
+            <?= HTMLElements::input("category_a_description_{$i}_1") ?>
+        </td>
+        <td>
+            <?= HTMLElements::input("category_a_value_{$i}_1") ?>
+        </td>
+        <td>
+            <?= HTMLElements::input("category_a_value_{$i}_2") ?>
+        </td>
+        <td>
+            <?= HTMLElements::input("category_a_value_{$i}_3") ?>
+        </td>
+
+    </tr>
+<? } ?>
+<tr>
+    <td colspan="3"></td>
+    <td>0</td>
+    <td>0</td>
+</tr>
+<tr>
+    <td colspan="2">
+        <b>Total amount</b>
+    </td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+</tr>
