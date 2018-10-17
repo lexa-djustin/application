@@ -19,19 +19,21 @@
 
         <table class="table table-bordered">
             <thead>
-            <tr>
-                <th>Description</th>
-                <th>Details</th>
-                <th>Year 1</th>
-                <th>Year 2</th>
-                <th>Total</th>
-            </tr>
+            <?= Renderer::factory('templates/table/header', $this)->render() ?>
             </thead>
             <tbody>
             <?= Renderer::factory('templates/table/category-0', $this)->render() ?>
+
+            <?= Renderer::factory('templates/table/header', $this)->render() ?>
             <?= Renderer::factory('templates/table/category-1', $this)->render() ?>
+
+            <?= Renderer::factory('templates/table/header', $this)->render() ?>
             <?= Renderer::factory('templates/table/category-2', $this)->render() ?>
+
+            <?= Renderer::factory('templates/table/header', $this)->render() ?>
             <?= Renderer::factory('templates/table/category-3', $this)->render() ?>
+
+            <?= Renderer::factory('templates/table/header', $this)->render() ?>
             <?= Renderer::factory('templates/table/category-4', $this)->render() ?>
             <?= Renderer::factory('templates/table/category-4-total', $this)->render() ?>
             </tbody>
