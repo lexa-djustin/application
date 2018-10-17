@@ -25,12 +25,12 @@
         </tr>
         </thead>
         <tbody>
-            <?= Renderer::partial('templates/table/category-0', $this) ?>
-            <?= Renderer::partial('templates/table/category-1', $this) ?>
-            <?= Renderer::partial('templates/table/category-2', $this) ?>
-            <?= Renderer::partial('templates/table/category-3', $this) ?>
-            <?= Renderer::partial('templates/table/category-4', $this) ?>
-            <?= Renderer::partial('templates/table/category-4-total', $this) ?>
+            <?= Renderer::factory('templates/table/category-0', $this)->render() ?>
+            <?= Renderer::factory('templates/table/category-1', $this)->render() ?>
+            <?= Renderer::factory('templates/table/category-2', $this)->render() ?>
+            <?= Renderer::factory('templates/table/category-3', $this)->render() ?>
+            <?= Renderer::factory('templates/table/category-4', $this)->render() ?>
+            <?= Renderer::factory('templates/table/category-4-total', $this)->render() ?>
         </tbody>
     </table>
 </div>

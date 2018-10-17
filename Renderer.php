@@ -67,9 +67,9 @@ class Renderer
      * @return string
      * @throws Exception
      */
-    public static function partial($script, $parent = null, $params = [])
+    public static function factory($script, $parent = null, $params = [])
     {
-        return (new self($script, $parent, $params))->render();
+        return new self($script, $parent, $params);
     }
 
     /**
