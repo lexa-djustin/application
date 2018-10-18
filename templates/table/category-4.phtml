@@ -1,29 +1,35 @@
-<? $row = 51; ?>
+<? $row = 41; ?>
 
-<? for ($i = 1; $i <= 7; $i++) { ?>
+<? for ($i = 1; $i <= 6; $i++) { ?>
+    <?
+    if ($i === 4) {
+        echo Renderer::factory("templates/table/category-4-sub", $this)->render();
+        $row += 5;
+        continue;
+    }
+    ?>
     <tr>
-        <td>
-            Item <?= $i ?>
-        </td>
-        <td></td>
+        <td>Label</td>
+        <td><?= HTMLElements::input("c{$i}", $this->data) ?></td>
         <td>
             <?= HTMLElements::input("d{$row}", $this->data) ?>
         </td>
         <td>
             <?= HTMLElements::input("e{$row}", $this->data) ?>
         </td>
-        <td>
-            <?= HTMLElements::input("f{$row}", $this->data) ?>
-        </td>
-
-        <? $row++; ?>
+        <td><?= HTMLElements::result("f{$row}", $this->data) ?></td>
+        <? if ($i === 4) { ?>
+            <? $row += 4; ?>
+        <? } ?>
     </tr>
+
+    <? $row++; ?>
 <? } ?>
 <tr>
     <td colspan="2">
-        <b>Category 4</b>
+        <b>Total (label)</b>
     </td>
-    <td><?= HTMLElements::result('d59', $this->data) ?></td>
-    <td><?= HTMLElements::result('e59', $this->data) ?></td>
-    <td><?= HTMLElements::result('f59', $this->data) ?></td>
+    <td><?= HTMLElements::result('d52', $this->data) ?></td>
+    <td><?= HTMLElements::result('e52', $this->data) ?></td>
+    <td><?= HTMLElements::result('f52', $this->data) ?></td>
 </tr>

@@ -21,9 +21,6 @@
         <table class="table table-bordered">
             <?= Renderer::factory('templates/table/header', $this)->render() ?>
             <tbody>
-            <?= Renderer::factory('templates/table/category-0', $this)->render() ?>
-
-            <?= Renderer::factory('templates/table/header', $this)->render() ?>
             <?= Renderer::factory('templates/table/category-1', $this)->render() ?>
 
             <?= Renderer::factory('templates/table/header', $this)->render() ?>
@@ -34,7 +31,12 @@
 
             <?= Renderer::factory('templates/table/header', $this)->render() ?>
             <?= Renderer::factory('templates/table/category-4', $this)->render() ?>
-            <?= Renderer::factory('templates/table/category-4-total', $this)->render() ?>
+
+            <?= Renderer::factory('templates/table/header', $this)->render() ?>
+            <?= Renderer::factory('templates/table/category-5', $this)->render() ?>
+
+            <?= Renderer::factory('templates/table/header', $this)->render() ?>
+            <?= Renderer::factory('templates/table/category-6', $this)->render() ?>
             </tbody>
         </table>
         <input type="submit" value="Calculate">

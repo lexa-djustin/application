@@ -1,0 +1,36 @@
+<? $i = 4;
+$max = 48;
+$b = $c = $d = $e = $f = 45; ?>
+<tr class="sub-row">
+    <td colspan="5">Lebel</td>
+</tr>
+
+<tr class="category-3-sub-row">
+    <td>
+        <? while ($b++ <= $max) { ?>
+            <div style="text-align: right;" class="sub-result">Sublabel</div>
+        <? } ?>
+    </td>
+    <td>
+        <? while ($c <= $max) { ?>
+            <?= HTMLElements::input("c{$c}", $this->data); $c++; ?>
+        <? } ?>
+    </td>
+    <td>
+        <? while ($d <= $max) { ?>
+            <?= HTMLElements::input("d{$d}", $this->data); $d++; ?>
+        <? } ?>
+    </td>
+    <td>
+        <? while ($e <= $max) { ?>
+            <?= HTMLElements::input("e{$e}", $this->data); $e++; ?>
+        <? } ?>
+    </td>
+    <td>
+        <? while ($f <= $max) { ?>
+            <div class="sub-result">
+                <?= HTMLElements::result("f{$f}", $this->data); $f++; ?>
+            </div>
+        <? } ?>
+    </td>
+</tr>

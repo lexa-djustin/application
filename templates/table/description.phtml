@@ -1,20 +1,41 @@
-<? $i = 1; $j = 4; $rows = 3; ?>
+<?
+$c = [
+    1 => ['position' => 'c2', 'title' => 'Proposal Budget'],
+    2 => ['position' => 'c3', 'title' => 'Program'],
+    3 => ['position' => 'c4', 'title' => 'Sponsor'],
+];
+$e = [
+    1 => ['position' => 'e2', 'title' => 'PI'],
+    2 => ['position' => 'e3', 'title' => 'Co-I'],
+    3 => ['position' => 'e4', 'title' => 'Period'],
+];
+?>
+
+<? $i = 1;
+$j = 4;
+$rows = 3; ?>
 
 <table class="table table-bordered table-description">
+    <thead>
+    <tr>
+        <th colspan="2">Image</th>
+    </tr>
+    </thead>
     <tbody>
-        <? for($row = 1; $row <= $rows; $row++){ ?>
-            <tr>
-                <td>
-                    <span>Item <?= $i ?></span>
-                    <?= HTMLElements::input("description_{$row}_{$i}", $this->data) ?>
-                </td>
-                <td>
-                    <span>Item <?= $j ?></span>
-                    <?= HTMLElements::input("description_{$row}_{$j}", $this->data) ?>
-                </td>
-            </tr>
+    <? for ($row = 1; $row <= $rows; $row++) { ?>
+        <tr>
+            <td>
+                <span><?= $c[$row]['title'] ?></span>
+                <?= HTMLElements::input($c[$row]['position'], $this->data) ?>
+            </td>
+            <td>
+                <span><?= $e[$row]['title'] ?></span>
+                <?= HTMLElements::input($e[$row]['position'], $this->data) ?>
+            </td>
+        </tr>
 
-            <? $i++; $j++; ?>
-        <? } ?>
+        <? $i++;
+        $j++; ?>
+    <? } ?>
     </tbody>
 </table>

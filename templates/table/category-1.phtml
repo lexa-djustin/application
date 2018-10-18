@@ -1,62 +1,22 @@
-<? $d = $e = $f = 17; ?>
-
-<? for ($i = 1; $i <= 3; $i++) { ?>
-    <tr class="sub-row">
-        <td colspan="5">Label</td>
+<? for ($row = 9; $row <= 12; $row++) { ?>
+    <tr>
+        <td>Label</td>
+        <td>
+            <?= HTMLElements::input("c{$row}", $this->data) ?>
+        </td>
+        <td>
+            <?= HTMLElements::input("d{$row}", $this->data) ?>
+        </td>
+        <td><?= HTMLElements::input("e{$row}", $this->data) ?></td>
+        <td><?= HTMLElements::result("f{$row}", $this->data) ?></td>
     </tr>
-    <tr class="category-1">
-        <td></td>
-        <td>
-            <?
-            $j = 3;
-            while ($j--) {
-                echo HTMLElements::input("category_1_description_{$i}_{$j}", $this->data);
-            }
-            ?>
-        </td>
-        <td>
-            <?
-            $j = 3;
-            while ($j--) {
-                echo HTMLElements::input("d{$d}", $this->data);
-                $d++;
-            }
-            ?>
-        </td>
-        <td>
-            <?
-            $j = 3;
-            while ($j--) {
-                echo HTMLElements::input("e{$e}", $this->data);
-                $e++;
-            }
-            ?>
-        </td>
-        <td>
-            <?
-            $j = 3;
-            while ($j--) {
-                echo '<div class="sub-result">' . HTMLElements::result("f{$f}", $this->data) . '</div>';
-                $f++;
-            }
-            ?>
-        </td>
-    </tr>
-    <tr class="sub-row">
-        <td colspan="2">Total (Label)</td>
-        <td class="d<?= $d ?>"><?= HTMLElements::result("d{$d}", $this->data) ?></td>
-        <td class="e<?= $e ?>"><?= HTMLElements::result("e{$e}", $this->data) ?></td>
-        <td class="f<?= $f ?>"><?= HTMLElements::result("f{$f}", $this->data) ?></td>
-        <? $d++; $e++; $f++; ?>
-    </tr>
-
-    <? $d++; $e++; $f++; ?>
 <? } ?>
+
 <tr>
     <td colspan="2">
-        <b>Total (Label)</b>
+        <b>Total (label)</b>
     </td>
-    <td><?= HTMLElements::result('d32', $this->data) ?></td>
-    <td><?= HTMLElements::result('e32', $this->data) ?></td>
-    <td><?= HTMLElements::result('f32', $this->data) ?></td>
+    <td><?= HTMLElements::result('d14', $this->data) ?></td>
+    <td><?= HTMLElements::result('e14', $this->data) ?></td>
+    <td><?= HTMLElements::result('f14', $this->data) ?></td>
 </tr>

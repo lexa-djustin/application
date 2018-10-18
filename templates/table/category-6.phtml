@@ -1,0 +1,28 @@
+<? for ($row = 64; $row <= 68; $row++) { ?>
+    <tr>
+        <td colspan="2">Label</td>
+        <td>
+            <?= HTMLElements::input("d{$row}", $this->data) ?>
+        </td>
+        <td><?= HTMLElements::input("e{$row}", $this->data) ?></td>
+        <td><?= HTMLElements::result("f{$row}", $this->data) ?></td>
+    </tr>
+<? } ?>
+
+<tr>
+    <td colspan="2">
+        <b>Total (label)</b>
+    </td>
+    <td><?= HTMLElements::result('d70', $this->data) ?></td>
+    <td><?= HTMLElements::result('e70', $this->data) ?></td>
+    <td><?= HTMLElements::result('f70', $this->data) ?></td>
+</tr>
+
+<tr class="grand-total-row">
+    <td colspan="2">
+        <b>Grand Total</b>
+    </td>
+    <td><?= HTMLElements::result('d72', $this->data) ?></td>
+    <td><?= HTMLElements::result('e72', $this->data) ?></td>
+    <td><?= HTMLElements::result('f72', $this->data) ?></td>
+</tr>
