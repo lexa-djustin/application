@@ -35,7 +35,7 @@ class HTMLElements
      */
     public static function result($name, array $data = [])
     {
-        if (isset($data[$name])) {
+        if (array_key_exists($name, $data)) {
             return '<b>' . $data[$name] . '</b>';
         }
 

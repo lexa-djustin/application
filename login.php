@@ -6,7 +6,7 @@ session_start();
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    header("location: welcome.php");
+    header("location: index.php");
     exit;
 }
 
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = $loginObject->login($email, $password);
 
         if ($result->getStatus() == 1) {
-            header("location: welcome.php");
+            header("location: index.php");
         } else {
             $errors = $result->getMessages();
         }

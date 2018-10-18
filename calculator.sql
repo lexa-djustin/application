@@ -64,6 +64,28 @@ ALTER TABLE `users`
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;COMMIT;
 
+  CREATE TABLE `calculator` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `date_edited` datetime NOT NULL,
+  `data` text NOT NULL,
+  `submitted` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Индексы сохранённых таблиц
+--
+
+--
+-- Индексы таблицы `calculator`
+--
+ALTER TABLE `calculator`
+  ADD UNIQUE KEY `id` (`id`);
+
+  ALTER TABLE `calculator`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
