@@ -76,7 +76,6 @@ class Calculator
         $this->result['e72'] = $this->data['e72'] = $this->sumByColumns(['e70', 'e62', 'e52', 'e39', 'e39', 'e14']);
         $this->result['f72'] = $this->data['f72'] = $this->result['d72'] + $this->result['e72'];
 
-
         return $this->result;
     }
 

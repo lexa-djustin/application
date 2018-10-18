@@ -10,12 +10,12 @@ class EXCELBuilder
     /**
      * @var array $data
      */
-    private $_data;
+    private $data;
 
     /**
      * @var $_PHPExcel
      */
-    private $_PHPExcel;
+    private $PHPExcel;
 
     /**
      * @var string $fileType
@@ -25,7 +25,7 @@ class EXCELBuilder
     public function getFileType()
     {
         if (!$this->fileType) {
-            return $this->fileType = PHPExcel_IOFactory::identify($this->_pathToFile);
+            return $this->fileType = PHPExcel_IOFactory::identify($this->pathToFile);
         }
 
         return $this->fileType;
@@ -34,7 +34,7 @@ class EXCELBuilder
     /**
      * @var string
      */
-    private $_pathToFile = 'templates/xls/default.xlsx';
+    private $pathToFile = 'templates/xls/default.xlsx';
 
 
     /**
@@ -60,13 +60,12 @@ class EXCELBuilder
     /**
      * Open XML template file
      *
-     * @return PHPExcel
      * @throws PHPExcel_Reader_Exception
      */
     private function openFile()
     {
         $objReader = PHPExcel_IOFactory::createReader($this->getFileType());
-        $this->_PHPExcel = $objReader->load($this->_pathToFile);
+        $this->PHPExcel = $objReader->load($this->pathToFile);
     }
 
     /**
@@ -74,9 +73,9 @@ class EXCELBuilder
      */
     private function updateFile()
     {
-        $this->_PHPExcel->setActiveSheetIndex(0)
-            ->setCellValue('B1', 'Hello')
-            ->setCellValue('B2', 'World!');
+        foreach ($this->_data as $name => $value) {
+            $this->PHPExcel->setActiveSheetIndex(0)->setCellValue($name, $value);
+        }
     }
 
     /**
@@ -104,7 +103,7 @@ class EXCELBuilder
         header("Content-Disposition: attachment; filename=" . $this->generateStreamFileName());
 
         // Write file to the browser
-        $objWriter = PHPExcel_IOFactory::createWriter($this->_PHPExcel, $this->getFileType());
+        $objWriter = PHPExcel_IOFactory::createWriter($this->PHPExcel, $this->getFileType());
         $objWriter->save('php://output');
         exit();
     }
