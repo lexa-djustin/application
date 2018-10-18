@@ -13,6 +13,10 @@ class HTMLElements
     {
         $value = '';
 
+        if (\Components\Registry::getInstance()->onlyRead === true) {
+            $attributes['readonly'] = 'readonly';
+        }
+
         if (isset($data[$name])) {
             $value = $data[$name];
         }

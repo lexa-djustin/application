@@ -9,6 +9,8 @@ require_once 'Autoloader.php';
 
 $data = [];
 
+\Components\Registry::getInstance()->onlyRead = false;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $calculator = new Calculator($_POST);
     $result = $calculator->calculate();
@@ -19,11 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $xmlBuilder = new EXCELBuilder($data);
         $xmlBuilder->createFile();
     }
-    if (isset($_POST['saveToDb'])) {
+    if (isset($_POST['saveToDb']) || isset($_POST['submit'])) {
         $calculatorDao = new \Components\CalculatorDao();
         $calculatorDao->save([
             'data' => json_encode($_POST),
             'user_id' => 1,
+            'submitted' => !empty($_POST['submit']) ? 1 : 0,
         ]);
     }
 }

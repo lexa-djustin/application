@@ -25,6 +25,7 @@ class CalculatorDao{
             $stmt->bindParam('date_edited',$data['date_edited']);
             $stmt->bindParam('user_id',$data['user_id'], \PDO::PARAM_INT);
             $stmt->bindParam('data',$data['data']);
+            $stmt->bindParam('submitted',$data['submitted']);
         }
 
         $stmt->execute();
