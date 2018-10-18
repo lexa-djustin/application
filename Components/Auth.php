@@ -8,7 +8,7 @@ class Auth
     {
         $result = new AuthResult();
         // Prepare a select statement
-        $sql = "SELECT id, name, email, password FROM users WHERE email = :email";
+        $sql = "SELECT id, name, email, password, role FROM users WHERE email = :email";
 
         if ($stmt = Db::getConnection()->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
@@ -21,8 +21,9 @@ class Auth
 
                     if ($row = $stmt->fetch()) {
                         $id = $row["id"];
-                        $username = $row["username"];
+                        $username = $row["name"];
                         $email = $row["email"];
+                        $role = $row["role"];
                         $hashed_password = $row["password"];
 
                         if (password_verify($password, $hashed_password)) {
@@ -34,6 +35,7 @@ class Auth
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
                             $_SESSION["email"] = $email;
+                            $_SESSION["role"] = $role;
 
                             // Redirect user to welcome page
                             $result->setStatus(1);
@@ -64,16 +66,12 @@ class Auth
      */
     public function logout()
     {
-        // Initialize the session
         session_start();
 
-// Unset all of the session variables
         $_SESSION = [];
 
-// Destroy the session.
         session_destroy();
 
-// Redirect to login page
         header("location: login.php");
         exit;
     }
