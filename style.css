@@ -30,6 +30,18 @@
     margin: auto;
 }
 
+.table thead {
+    background-color: #D3D3D3;
+}
+
+.table .sub-row {
+    background-color: #EAEAEA;
+}
+
+.table .sub-result {
+    padding: 3px 12px;
+}
+
 .table:not(.table-description) td:nth-child(2),
 .table:not(.table-description) td:nth-child(3),
 .table:not(.table-description) td:nth-child(4),
@@ -43,4 +55,15 @@
 
 .table-description {
     margin-bottom: 30px;
+}
+
+.category-1 div {
+    margin-bottom: 3px !important;
+}
+
+.table .sub-column{
+    text-align: right;
+}
+.table .category-3-sub-row{
+    border-bottom: none;
 }

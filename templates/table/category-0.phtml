@@ -1,37 +1,20 @@
-<? $row = 9; $rows = 5; $last = false; ?>
-
-<? for ($i = 1; $i <= $rows; $i++) { ?>
+<? for ($row = 9; $row <= 12; $row++) { ?>
     <tr>
+        <td>Label</td>
         <td>
-            <?= !$last ? 'Item ' . $i : '' ?>
-        </td>
-        <td>
-            <?= !$last ? HTMLElements::input("c{$row}", $this->data) : '' ?>
+            <?= HTMLElements::input("c{$row}", $this->data) ?>
         </td>
         <td>
             <?= HTMLElements::input("d{$row}", $this->data) ?>
         </td>
-        <td>
-            <? if ("e{$row}" === 'e12' || "e{$row}" === 'e13') { ?>
-                <?= HTMLElements::result("e{$row}", $this->data) ?>
-            <? } else { ?>
-                <?= HTMLElements::input("e{$row}", $this->data) ?>
-            <? } ?>
-        </td>
-        <td>
-            <? if ("f{$row}" === 'f12' || "f{$row}" === 'f13') { ?>
-                <?= HTMLElements::result("f{$row}", $this->data) ?>
-            <? } else { ?>
-                <?= HTMLElements::input("f{$row}", $this->data) ?>
-            <? } ?>
-        </td>
+        <td><?= HTMLElements::input("e{$row}", $this->data) ?></td>
+        <td><?= HTMLElements::result("f{$row}", $this->data) ?></td>
     </tr>
-
-    <? $row++; $last = $i === $rows - 1; ?>
 <? } ?>
+
 <tr>
     <td colspan="2">
-        <b>Total amount</b>
+        <b>Total (label)</b>
     </td>
     <td><?= HTMLElements::result('d14', $this->data) ?></td>
     <td><?= HTMLElements::result('e14', $this->data) ?></td>

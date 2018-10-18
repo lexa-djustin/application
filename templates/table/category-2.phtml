@@ -1,50 +1,22 @@
-<? $row = 31; ?>
-
-
-
-<? for ($i = 1; $i <= 4; $i++) { ?>
+<? for ($row = 34; $row <= 37; $row++) { ?>
     <tr>
+        <td>Label</td>
         <td>
-            <?
-            switch ($i){
-                case 1:
-                    echo 'Subcontracts (>100K AED)';
-                    break;
-                case 2:
-                    echo 'Subcontracts (<100K AED)';
-                    break;
-                default:
-                    echo 'Item ' . $i;
-            }
-            ?>
-        </td>
-        <td>
-            <? if ($i < 3) { ?>
-                <?= HTMLElements::input("category_2_description_{$i}", $this->data, ['placeholder' => '[name of subawrdee]']) ?><br>
-            <? } ?>
+            <?= HTMLElements::input("c{$row}", $this->data) ?>
         </td>
         <td>
             <?= HTMLElements::input("d{$row}", $this->data) ?>
         </td>
-        <td>
-            <?= HTMLElements::input("e{$row}", $this->data) ?>
-        </td>
-        <td>
-            <? if ("f{$row}" === 'f33' || "f{$row}" === 'f34') { ?>
-                <?= HTMLElements::result("f{$row}", $this->data) ?>
-            <? } else { ?>
-                <?= HTMLElements::input("f{$row}", $this->data) ?>
-            <? } ?>
-        </td>
-
-        <? $row++; ?>
+        <td><?= HTMLElements::input("e{$row}", $this->data) ?></td>
+        <td><?= HTMLElements::result("f{$row}", $this->data) ?></td>
     </tr>
 <? } ?>
+
 <tr>
     <td colspan="2">
-        <b>Category 2</b>
+        <b> Total (Label)</b>
     </td>
-    <td><?= HTMLElements::result('d36', $this->data) ?></td>
-    <td><?= HTMLElements::result('e36', $this->data) ?></td>
-    <td><?= HTMLElements::result('f36', $this->data) ?></td>
+    <td><?= HTMLElements::result('d39', $this->data) ?></td>
+    <td><?= HTMLElements::result('e39', $this->data) ?></td>
+    <td><?= HTMLElements::result('f39', $this->data) ?></td>
 </tr>
