@@ -18,6 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $xmlBuilder = new EXCELBuilder($result);
         $xmlBuilder->createFile();
     }
+    if (isset($_POST['saveToDb'])) {
+        $calculatorDao = new \Components\CalculatorDao();
+        $calculatorDao->save([
+            'data' => json_encode($_POST),
+            'user_id' => 1,
+        ]);
+    }
 }
 
 $render = new Renderer('templates/main', null, ['data' => $data]);

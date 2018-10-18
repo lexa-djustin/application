@@ -12,7 +12,7 @@ class Db
     /**
      * Get PDO connection
      *
-     * @return null|PDO
+     * @return null|\PDO
      */
     public static function getConnection()
     {

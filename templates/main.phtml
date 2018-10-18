@@ -37,10 +37,16 @@
 
             <?= Renderer::factory('templates/table/header', $this)->render() ?>
             <?= Renderer::factory('templates/table/category-6', $this)->render() ?>
+
+            <tr>
+                <td colspan="5">
+                    <input type="submit" value="Calculate">
+                    <input type="submit" value="Save to data base" name="saveToDb">
+                    <input type="submit" value="Save to XML" name="saveToXML">
+                </td>
+            </tr>
             </tbody>
         </table>
-        <input type="submit" value="Calculate">
-        <input type="submit" value="Save to XML" name="saveToXML">
     </form>
 </div>
 </body>
