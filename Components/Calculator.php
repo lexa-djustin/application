@@ -26,7 +26,7 @@ class Calculator
 
     /**
      * @return array
-     * @throws Exception
+     * @throws \Exception
      */
     public function calculate()
     {
@@ -61,12 +61,9 @@ class Calculator
 
         $this->totalForRows(41, 43);
         $this->totalForRows(45, 50);
-        $d = $this->sumByVertical('d', 41, 43);
-        $e = $this->sumByVertical('e', 41, 43);
-        $f = $this->sumByVertical('f', 41, 43);
-        $this->result['d52'] = $this->data['d52'] = $d + $this->sumByVertical('d', 45, 50);
-        $this->result['e52'] = $this->data['e52'] = $e + $this->sumByVertical('e', 45, 50);
-        $this->result['f52'] = $this->data['f52'] = $f + $this->sumByVertical('f', 45, 50);
+        $this->result['d52'] = $this->data['d52'] = $this->sumByColumns(['d41', 'd42', 'd43', 'd49', 'd50']);
+        $this->result['e52'] = $this->data['e52'] = $this->sumByColumns(['e41', 'e42', 'e43', 'e49', 'e50']);
+        $this->result['f52'] = $this->data['f52'] = $this->sumByColumns(['f41', 'f42', 'f43', 'f49', 'f50']);
 
         $this->totalForRows(54, 60);
         $this->totalForColumns(62, 54, 60);
@@ -74,8 +71,8 @@ class Calculator
         $this->totalForRows(64, 68);
         $this->totalForColumns(70, 64, 68);
 
-        $this->result['d72'] = $this->data['d72'] = $this->sumByColumns(['d70', 'd62', 'd52', 'd39', 'd39', 'd14']);
-        $this->result['e72'] = $this->data['e72'] = $this->sumByColumns(['e70', 'e62', 'e52', 'e39', 'e39', 'e14']);
+        $this->result['d72'] = $this->data['d72'] = $this->sumByColumns(['d70', 'd62', 'd52', 'd39', 'd32', 'd14']);
+        $this->result['e72'] = $this->data['e72'] = $this->sumByColumns(['e70', 'e62', 'e52', 'e39', 'e32', 'e14']);
         $this->result['f72'] = $this->data['f72'] = $this->result['d72'] + $this->result['e72'];
 
         return $this->result;
@@ -88,7 +85,7 @@ class Calculator
      *
      * @return int|mixed
      *
-     * @throws Exception
+     * @throws \Exception
      */
     private function sumByVertical($letter, $min, $max)
     {
@@ -98,7 +95,7 @@ class Calculator
             $key = $letter . $i;
 
             if (!array_key_exists($key, $this->data)) {
-                throw new Exception(sprintf('Key with name "%s" was not found', $key));
+                throw new \Exception(sprintf('Key with name "%s" was not found', $key));
             }
 
             $value = (float)$this->data[$key];
@@ -115,7 +112,7 @@ class Calculator
      *
      * @return int|float
      *
-     * @throws Exception
+     * @throws \Exception
      */
     private function sumByHorizontal($rowNumber, $minLetter, $maxLetter)
     {
@@ -125,7 +122,7 @@ class Calculator
             $key = $letter . $rowNumber;
 
             if (!array_key_exists($key, $this->data)) {
-                throw new Exception(sprintf('Key with name "%s" was not found', $key));
+                throw new \Exception(sprintf('Key with name "%s" was not found', $key));
             }
 
             $sum += $this->data[$key];
@@ -138,7 +135,7 @@ class Calculator
      * @param array $columns
      *
      * @return int|mixed
-     * @throws Exception
+     * @throws \Exception
      */
     private function sumByColumns(array $columns)
     {
@@ -146,7 +143,7 @@ class Calculator
 
         foreach ($columns as $column) {
             if (!array_key_exists($column, $this->data)) {
-                throw new Exception(sprintf('Key with name "%s" was not found', $column));
+                throw new \Exception(sprintf('Key with name "%s" was not found', $column));
             }
 
             $value = (float)$this->data[$column];
@@ -159,13 +156,13 @@ class Calculator
     /**
      * @param array $columns
      *
-     * @throws Exception
+     * @throws \Exception
      */
     private function columnsToFloat($columns)
     {
         foreach ($columns as $column) {
             if (!array_key_exists($column, $this->data)) {
-                throw new Exception(sprintf('Key with name "%s" was not found', $column));
+                throw new \Exception(sprintf('Key with name "%s" was not found', $column));
             }
 
             $this->data[$column] = (float)$this->data[$column];
@@ -176,7 +173,7 @@ class Calculator
      * @param int $rowMin
      * @param int $rowMax
      *
-     * @throws Exception
+     * @throws \Exception
      */
     private function totalForRows($rowMin, $rowMax)
     {
@@ -199,7 +196,7 @@ class Calculator
      * @param int $rowMin
      * @param int $rowMax
      *
-     * @throws Exception
+     * @throws \Exception
      */
     private function totalForColumns($resultRowNum, $rowMin, $rowMax)
     {
