@@ -14,14 +14,12 @@ class Register
      */
     public function isEmailExist($email)
     {
-        // Prepare a select statement
         $sql = "SELECT id FROM users WHERE email = :email";
 
         if ($stmt = Db::getConnection()->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
             $stmt->bindParam(":email", $email, \PDO::PARAM_STR);
 
-            // Attempt to execute the prepared statement
             if ($stmt->execute()) {
                 if ($stmt->rowCount() == 1) {
                     return true;
@@ -43,24 +41,24 @@ class Register
     public function register($params)
     {
         $result = new RegisterResult();
-        // Prepare an insert statement
+
         $sql = "INSERT INTO users (name, department, email, password, role)
                 VALUES (:username, :department, :email, :password, :role)";
 
         if ($stmt = DB::getConnection()->prepare($sql)) {
-            // Bind variables to the prepared statement as parameters
+            $passwordHash = password_hash($params['password'], PASSWORD_DEFAULT);
+
             $stmt->bindParam(":username", $params['username'], \PDO::PARAM_STR);
             $stmt->bindParam(":department", $params['department'], \PDO::PARAM_STR);
             $stmt->bindParam(":email", $params['email'], \PDO::PARAM_STR);
-            $stmt->bindParam(":password", password_hash($params['password'], PASSWORD_DEFAULT), \PDO::PARAM_STR);
+            $stmt->bindParam(":password", $passwordHash, \PDO::PARAM_STR);
 
-            if (!$params['role']) {
+            if (empty($params['role'])) {
                 $params['role'] = self::DEFAULT_ROLE;
             }
 
             $stmt->bindParam(":role", $params['role'], \PDO::PARAM_STR);
 
-            // Attempt to execute the prepared statement
             if ($stmt->execute()) {
                 $result->setStatus(1);
 

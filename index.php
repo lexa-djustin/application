@@ -28,6 +28,9 @@ switch ($page) {
     case 'logout':
         $controller = new Controllers\Logout();
         break;
+    case 'register':
+        $controller = new Controllers\Register();
+        break;
     case 'index':
     default:
         $controller = new Controllers\Index();

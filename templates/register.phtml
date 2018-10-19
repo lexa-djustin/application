@@ -1,0 +1,49 @@
+<form method="POST" class="register-form">
+    <h2>Sign Up</h2>
+    <p>Please fill this form to create an account.</p>
+
+    <div class="form-group <?php echo (!empty($this->errors['username'])) ? 'has-error' : ''; ?>">
+        <label>Username</label>
+        <input type="text" name="username" class="form-control"
+               value="<?= isset($this->params['username']) ? $this->params['username'] : '' ?>">
+        <? if (!empty($this->errors['username'])) { ?>
+            <span class="help-block"><?= $this->errors['username'] ?></span>
+        <? } ?>
+    </div>
+    <div class="form-group <?= (!empty($this->errors['email'])) ? 'has-error' : ''; ?>">
+        <label>Email</label>
+        <input type="text" name="email" class="form-control"
+               value="<?= isset($this->params['email']) ? $this->params['email'] : '' ?>">
+        <? if (!empty($this->errors['email'])) { ?>
+            <span class="help-block"><?= $this->errors['email'] ?></span>
+        <? } ?>
+    </div>
+    <div class="form-group <?php echo (!empty($this->errors['department'])) ? 'has-error' : ''; ?>">
+        <label>Department</label>
+        <input type="text" name="department" class="form-control"
+               value="<?= isset($this->params['department']) ? $this->params['department'] : '' ?>">
+        <? if (!empty($this->errors['department'])) { ?>
+            <span class="help-block"><?= $this->errors['department'] ?></span>
+        <? } ?>
+    </div>
+    <div class="form-group <?php echo (!empty($this->errors['password'])) ? 'has-error' : ''; ?>">
+        <label>Password</label>
+        <input type="password" name="password" class="form-control"
+               value="<?= isset($this->params['password']) ? $this->params['password'] : '' ?>">
+        <? if (!empty($this->errors['password'])) { ?>
+            <span class="help-block"><?= $this->errors['password']; ?></span>
+        <? } ?>
+    </div>
+    <div class="form-group <?php echo (!empty($this->errors['confirm_password'])) ? 'has-error' : ''; ?>">
+        <label>Confirm Password</label>
+        <input type="password" name="confirm_password" class="form-control"
+               value="<?= isset($this->params['confirm_password']) ? $this->params['confirm_password'] : '' ?>">
+        <? if (!empty($this->errors['confirm_password'])) { ?>
+            <span class="help-block"><?= $this->errors['confirm_password']; ?></span>
+        <? } ?>
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </div>
+    <p>Already have an account? <a href="login.php">Login here</a>.</p>
+</form>
