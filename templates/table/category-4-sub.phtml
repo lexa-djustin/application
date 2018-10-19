@@ -2,13 +2,14 @@
 $max = 48;
 $b = $c = $d = $e = $f = 45; ?>
 <tr class="sub-row">
-    <td colspan="5">Lebel</td>
+    <td colspan="5"><?= \HTMLElements::label("b44", $this->labels) ?></td>
 </tr>
 
 <tr class="category-3-sub-row">
     <td>
-        <? while ($b++ <= $max) { ?>
-            <div style="text-align: right;" class="sub-result">Sublabel</div>
+        <? while ($b <= $max) { ?>
+            <div style="text-align: right;" class="sub-result"><?= \HTMLElements::label("b{$b}", $this->labels) ?></div>
+            <? $b++; ?>
         <? } ?>
     </td>
     <td>

@@ -57,4 +57,19 @@ class HTMLElements
 
         return trim($attributes);
     }
+
+    /**
+     * @param string $name
+     * @param array $labels
+     *
+     * @return string
+     */
+    public static function label($name, array $labels)
+    {
+        if (array_key_exists($name, $labels)) {
+            return $labels[$name];
+        }
+
+        return $name;
+    }
 }

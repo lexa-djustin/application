@@ -62,7 +62,13 @@ class Form extends ControllerAbstract
             }
         }
 
-        $render = new \Renderer('templates/form', null, ['data' => $data]);
+        $labels = json_decode(file_get_contents(BASE_PATH . 'labels.json'), true);
+
+        if (!is_array($labels)) {
+            throw new \Exception('Error in the file "labels.json" structure');
+        }
+
+        $render = new \Renderer('templates/form', null, ['data' => $data, 'labels' => $labels]);
         return $this->layout($render->render());
     }
 }

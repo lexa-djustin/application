@@ -1,6 +1,6 @@
 <? for ($row = 64; $row <= 68; $row++) { ?>
     <tr>
-        <td colspan="2">Label</td>
+        <td colspan="2"><?= \HTMLElements::label("b{$row}", $this->labels) ?></td>
         <td>
             <?= HTMLElements::input("d{$row}", $this->data) ?>
         </td>
@@ -11,7 +11,7 @@
 
 <tr>
     <td colspan="2">
-        <b>Total (label)</b>
+        <b>Total (<?= \HTMLElements::label("b70", $this->labels) ?>)</b>
     </td>
     <td><?= HTMLElements::result('d70', $this->data) ?></td>
     <td><?= HTMLElements::result('e70', $this->data) ?></td>

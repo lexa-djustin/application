@@ -1,8 +1,8 @@
-<? $c = $d = $e = $f = 17; ?>
+<? $b = 16; $c = $d = $e = $f = 17; ?>
 
 <? for ($i = 1; $i <= 3; $i++) { ?>
     <tr class="sub-row">
-        <td colspan="5">Label</td>
+        <td colspan="5"><?= \HTMLElements::label("b{$b}", $this->labels) ?></td>
     </tr>
     <tr class="category-1">
         <td></td>
@@ -11,6 +11,7 @@
             $j = 3;
             while ($j--) {
                 echo HTMLElements::input("c{$c}", $this->data);
+                $c++;
             }
             ?>
         </td>
@@ -43,18 +44,27 @@
         </td>
     </tr>
     <tr class="sub-row">
-        <td colspan="2">Total (Label)</td>
+        <? $b += 4; ?>
+        <td colspan="2">Total (<?= \HTMLElements::label("b{$b}", $this->labels) ?>)</td>
         <td class="d<?= $d ?>"><?= HTMLElements::result("d{$d}", $this->data) ?></td>
         <td class="e<?= $e ?>"><?= HTMLElements::result("e{$e}", $this->data) ?></td>
         <td class="f<?= $f ?>"><?= HTMLElements::result("f{$f}", $this->data) ?></td>
-        <? $d++; $e++; $f++; ?>
+        <? $d++;
+        $e++;
+        $f++; ?>
     </tr>
 
-    <? $c++; $d++; $e++; $f++; ?>
+    <?
+    $b++;
+    $c++;
+    $d++;
+    $e++;
+    $f++;
+    ?>
 <? } ?>
 <tr>
     <td colspan="2">
-        <b>Total (Label)</b>
+        <b>Total (<?= \HTMLElements::label("b32", $this->labels) ?>)</b>
     </td>
     <td><?= HTMLElements::result('d32', $this->data) ?></td>
     <td><?= HTMLElements::result('e32', $this->data) ?></td>
