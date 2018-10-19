@@ -21,8 +21,8 @@
 }
 
 .container {
-    margin-top: 20px;
     margin-bottom: 20px;
+    max-width: 1000px;
 }
 
 .table {
@@ -57,14 +57,30 @@
     margin-bottom: 30px;
 }
 
-.category-1 div, .category-3-sub-row div{
+.category-1 div, .category-3-sub-row div {
     margin-bottom: 3px !important;
 }
 
-.table .sub-column{
+.table .sub-column {
     text-align: right;
 }
 
-.table .grand-total-row{
+.table .grand-total-row {
     background-color: #FFFF99;
+}
+
+.form-auth {
+    width: 350px;
+    margin: auto;
+}
+
+.auth-info{
+    text-align: right;
+}
+
+header{
+    height: 50px;
+    background-color: #D3D3D3;
+    margin-bottom: 30px;
+    padding: 10px;
 }
