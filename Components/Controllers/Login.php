@@ -19,7 +19,7 @@ class Login extends ControllerAbstract
         }
 
         $errors = [];
-        $email = '';
+        $email = $password = '';
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (empty(trim($_POST["email"]))) {
@@ -40,6 +40,10 @@ class Login extends ControllerAbstract
                 $result = $loginObject->login($email, $password);
 
                 if ($result->getStatus() == 1) {
+                    if (\Components\Auth::getAuth()['role'] === 'admin') {
+                        $redirectTo = 'admin-profile';
+                    }
+
                     header("location: {$redirectTo}");
                     exit();
                 } else {

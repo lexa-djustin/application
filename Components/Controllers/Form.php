@@ -27,7 +27,13 @@ class Form extends ControllerAbstract
         $data = [];
 
         if (!empty($_GET['id'])) {
-            $form = $calculatorDao->findByUserIdAndFormId($user['id'], $_GET['id']);
+            $userId = null;
+
+            if ($user['role'] !== 'admin') {
+                $userId = $user['id'];
+            }
+
+            $form = $calculatorDao->findByUserIdAndFormId($userId, $_GET['id']);
             \Components\Registry::getInstance()->onlyRead = $form && $form['submitted'];
         }
 

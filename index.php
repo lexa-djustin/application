@@ -15,7 +15,7 @@ require_once 'Autoloader.php';
 
 $uri = $_SERVER['REQUEST_URI'];
 
-if (($pos = stripos($uri, '?') )!== false) {
+if (($pos = stripos($uri, '?')) !== false) {
     $uri = substr($uri, 0, $pos);
 }
 
@@ -40,6 +40,9 @@ switch ($page) {
         break;
     case 'form':
         $controller = new Controllers\Form();
+        break;
+    case 'admin-profile':
+        $controller = new Controllers\AdminProfile();
         break;
     case 'index':
     default:

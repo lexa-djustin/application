@@ -59,11 +59,21 @@ class CalculatorDao
      *
      * @return array|null
      */
-    public function findByUserIdAndFormId($userId, $formId)
+    public function findByUserIdAndFormId($userId = null, $formId)
     {
-        $query = 'SELECT * FROM calculator WHERE user_id = ? AND id = ?';
+        $query = 'SELECT * FROM calculator WHERE ';
+        $params = [];
+
+        if ($userId !== null) {
+            $query .= 'user_id = ? AND ';
+            $params[] = $userId;
+        }
+
+        $query .= 'id = ?';
+        $params[] = $formId;
+
         $stmt = Db::getConnection()->prepare($query);
-        $stmt->execute([$userId, $formId]);
+        $stmt->execute($params);
 
         $result = $stmt->fetch();
         return $result ? $result : null;
@@ -96,5 +106,20 @@ class CalculatorDao
 
         $result = $stmt->fetch();
         return $result ? $result : null;
+    }
+
+    /**
+     * @return array
+     */
+    public function fetchAllSubmittedForms()
+    {
+        $query = 'SELECT c.id, c.date_added, c.date_edited, u.name, u.department FROM calculator c ';
+        $query .= 'LEFT JOIN users u ON c.user_id = u.id ';
+        $query .= 'WHERE c.submitted = 1';
+
+        $stmt = Db::getConnection()->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
     }
 }
