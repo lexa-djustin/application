@@ -12,6 +12,11 @@ require_once 'PHPExcel/classes/PHPExcel.php';
 require_once 'Autoloader.php';
 
 $uri = $_SERVER['REQUEST_URI'];
+
+if (($pos = stripos($uri, '?') )!== false) {
+    $uri = substr($uri, 0, $pos);
+}
+
 $page = 'index';
 $parts = array_filter(explode('/', $uri), function ($part) {
     return !empty($part);
@@ -30,6 +35,9 @@ switch ($page) {
         break;
     case 'register':
         $controller = new Controllers\Register();
+        break;
+    case 'form':
+        $controller = new Controllers\Form();
         break;
     case 'index':
     default:

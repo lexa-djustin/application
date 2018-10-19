@@ -23,10 +23,12 @@
 
         <tr>
             <td colspan="5">
-                <input type="submit" value="Calculate">
-                <input type="submit" value="Save to data base" name="saveToDb">
+                <? if (empty($this->data['submitted'])) { ?>
+                    <input type="submit" value="Calculate">
+                    <input type="submit" value="Save to data base" name="saveToDb">
+                    <input type="submit" value="Submit" name="submit">
+                <? } ?>
                 <input type="submit" value="Save to XML" name="saveToXML">
-                <input type="submit" value="Submit" name="submit">
             </td>
         </tr>
         </tbody>

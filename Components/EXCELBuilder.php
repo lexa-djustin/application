@@ -1,5 +1,7 @@
 <?php
 
+namespace Components;
+
 class EXCELBuilder
 {
     /**
@@ -25,7 +27,7 @@ class EXCELBuilder
     public function getFileType()
     {
         if (!$this->fileType) {
-            return $this->fileType = PHPExcel_IOFactory::identify($this->pathToFile);
+            return $this->fileType = \PHPExcel_IOFactory::identify($this->pathToFile);
         }
 
         return $this->fileType;
@@ -60,11 +62,11 @@ class EXCELBuilder
     /**
      * Open XML template file
      *
-     * @throws PHPExcel_Reader_Exception
+     * @throws \PHPExcel_Reader_Exception
      */
     private function openFile()
     {
-        $objReader = PHPExcel_IOFactory::createReader($this->getFileType());
+        $objReader = \PHPExcel_IOFactory::createReader($this->getFileType());
         $this->PHPExcel = $objReader->load($this->pathToFile);
     }
 
@@ -91,8 +93,8 @@ class EXCELBuilder
     /**
      * Send update file to stream
      *
-     * @throws PHPExcel_Reader_Exception
-     * @throws PHPExcel_Writer_Exception
+     * @throws \PHPExcel_Reader_Exception
+     * @throws \PHPExcel_Writer_Exception
      */
     private function stream()
     {
@@ -103,7 +105,7 @@ class EXCELBuilder
         header("Content-Disposition: attachment; filename=" . $this->generateStreamFileName());
 
         // Write file to the browser
-        $objWriter = PHPExcel_IOFactory::createWriter($this->PHPExcel, $this->getFileType());
+        $objWriter = \PHPExcel_IOFactory::createWriter($this->PHPExcel, $this->getFileType());
         $objWriter->save('php://output');
         exit();
     }

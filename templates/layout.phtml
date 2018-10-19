@@ -18,7 +18,7 @@
 <header>
     <? if (\Components\Auth::isAuth()) { ?>
         <div class="auth-info">
-            <span class="username"><?= \Components\Auth::getAuth()['username'] ?></span>
+            <span class="username"><a href="/"><?= \Components\Auth::getAuth()['username'] ?></a></span>
             <span class="logout"><a href="/logout">Logout</a></span>
         </div>
     <? } ?>

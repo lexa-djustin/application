@@ -6,14 +6,14 @@ use Components\Db;
 
 class CalculatorDao
 {
-
     /**
      * @param array $data
+     * @param int $id
      */
-    public function save(array $data)
+    public function save(array $data, $id = null)
     {
-        if ($data['user_id']) {
-            $row = $this->findByUserId($data['user_id']);
+        if ($id) {
+            $row = $this->findById($id);
         } else {
             $row = null;
         }
@@ -55,17 +55,46 @@ class CalculatorDao
 
     /**
      * @param int $userId
+     * @param int $formId
      *
      * @return array|null
      */
-    public function findByUserId($userId)
+    public function findByUserIdAndFormId($userId, $formId)
+    {
+        $query = 'SELECT * FROM calculator WHERE user_id = ? AND id = ?';
+        $stmt = Db::getConnection()->prepare($query);
+        $stmt->execute([$userId, $formId]);
+
+        $result = $stmt->fetch();
+        return $result ? $result : null;
+    }
+
+    /**
+     * @param int $userId
+     * @return array
+     */
+    public function fetchAllUserForms($userId)
     {
         $query = 'SELECT * FROM calculator WHERE user_id = ?';
+
         $stmt = Db::getConnection()->prepare($query);
         $stmt->execute([$userId]);
 
-        $result = $stmt->fetch();
+        return $stmt->fetchAll();
+    }
 
+    /**
+     * @param int $id
+     *
+     * @return array|null
+     */
+    public function findById($id)
+    {
+        $query = 'SELECT * FROM calculator WHERE id = ?';
+        $stmt = Db::getConnection()->prepare($query);
+        $stmt->execute([$id]);
+
+        $result = $stmt->fetch();
         return $result ? $result : null;
     }
 }

@@ -25,7 +25,7 @@
     max-width: 1000px;
 }
 
-.table {
+.table, .profile-users-form {
     max-width: 700px;
     margin: auto;
 }
@@ -74,13 +74,26 @@
     margin: auto;
 }
 
-.auth-info{
+.auth-info {
     text-align: right;
 }
 
-header{
+header {
     height: 50px;
     background-color: #D3D3D3;
     margin-bottom: 30px;
     padding: 10px;
+}
+
+.profile-users-forms {
+    text-align: center;
+}
+
+.profile-users-forms th {
+    width: 33.3333333% !important;
+}
+
+#add-new-form {
+    width: 100px;
+    margin-top: 10px;
 }

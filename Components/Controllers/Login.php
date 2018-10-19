@@ -22,7 +22,6 @@ class Login extends ControllerAbstract
         $email = '';
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Check if username is empty
             if (empty(trim($_POST["email"]))) {
                 $errors['email'] = "Please enter email.";
             } else {
