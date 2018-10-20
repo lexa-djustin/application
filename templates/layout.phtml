@@ -20,7 +20,7 @@
         <div class="container-fluid">
             <? if (\Components\Auth::isAuth()) { ?>
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#"><?= \Components\Auth::getAuth()['username'] ?></a>
+                    <span class="navbar-brand" href="#"><?= \Components\Auth::getAuth()['username'] ?></span>
                 </div>
             <? } ?>
             <ul class="nav navbar-nav">
