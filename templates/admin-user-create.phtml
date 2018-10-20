@@ -1,5 +1,5 @@
 <form method="POST" class="register-form">
-    <h2>Create User</h2>
+    <h2><?= !empty($this->params['id']) ? 'Edit' : 'Create' ?> User</h2>
     <input type="hidden" name='id' value="<?= isset($this->params['id']) ? $this->params['id'] : '' ?>">
     <div class="form-group <?php echo (!empty($this->errors['username'])) ? 'has-error' : ''; ?>">
         <label>Username</label>
