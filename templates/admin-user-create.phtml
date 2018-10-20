@@ -30,15 +30,14 @@
         <div class="form-group">
             <label>Role</label>
             <select name="role" class="form-control" style="height: 30px" required>
-                <option <?= ($this->params['role'] == 'admin') ? 'selected="selected"' : '' ?>>admin</option>
                 <option>user</option>
+                <option <?= ($this->params['role'] == 'admin') ? 'selected="selected"' : '' ?>>admin</option>
             </select>
         </div>
     <? endif; ?>
     <div class="form-group <?php echo (!empty($this->errors['password'])) ? 'has-error' : ''; ?>">
         <label>Password</label>
-        <input type="password" name="password" class="form-control" required minlength="6"
-               value="<?= isset($this->params['password']) ? $this->params['password'] : '' ?>">
+        <input type="password" name="password" class="form-control" required minlength="6">
         <? if (!empty($this->errors['password'])) { ?>
             <span class="help-block"><?= $this->errors['password']; ?></span>
         <? } ?>
