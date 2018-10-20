@@ -98,7 +98,7 @@ class Calculator
                 throw new \Exception(sprintf('Key with name "%s" was not found', $key));
             }
 
-            $value = (float)$this->data[$key];
+            $value = $this->data[$key];
             $sum += $value;
         }
 
@@ -146,7 +146,7 @@ class Calculator
                 throw new \Exception(sprintf('Key with name "%s" was not found', $column));
             }
 
-            $value = (float)$this->data[$column];
+            $value = $this->data[$column];
             $sum += $value;
         }
 
@@ -158,14 +158,14 @@ class Calculator
      *
      * @throws \Exception
      */
-    private function columnsToFloat($columns)
+    private function columnsToInt($columns)
     {
         foreach ($columns as $column) {
             if (!array_key_exists($column, $this->data)) {
                 throw new \Exception(sprintf('Key with name "%s" was not found', $column));
             }
 
-            $this->data[$column] = (float)$this->data[$column];
+            $this->data[$column] = (int)$this->data[$column];
         }
     }
 
@@ -184,7 +184,7 @@ class Calculator
             $e = "e{$current}";
             $resultCeil = "f{$current}";
 
-            $this->columnsToFloat([$d, $e]);
+            $this->columnsToInt([$d, $e]);
             $this->result[$resultCeil] = $this->data[$resultCeil] =
                 $this->sumByHorizontal($current, 'd', 'e');
             $current++;
