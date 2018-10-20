@@ -12,6 +12,11 @@ class AdminProfile extends ControllerAbstract
     protected $roles = ['admin'];
 
     /**
+     * @var string
+     */
+    protected $layoutScript = 'templates/admin-layout';
+
+    /**
      * @return string
      *
      * @throws \Exception

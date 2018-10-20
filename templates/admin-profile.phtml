@@ -1,26 +1,37 @@
-<table class="table table-bordered profile-users-forms">
-    <thead>
-    <th>Created</th>
-    <th>Edited</th>
-    <th>Name</th>
-    <th>Department</th>
-    <th>Actions</th>
-    </thead>
-    <tbody>
-    <? if (count($this->forms)) { ?>
-        <? foreach ($this->forms as $form) { ?>
+<div class="table-wrapper">
+    <div class="table-title">
+        <div class="row">
+            <div class="col-sm-5">
+                <h2>Submitted <b>Forms</b></h2>
+            </div>
+        </div>
+    </div>
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th width="20%">Created</th>
+            <th width="20%">Edited</th>
+            <th width="20%">Name</th>
+            <th width="20%">Department</th>
+            <th width="20%">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <? if (count($this->forms)) { ?>
+            <? foreach ($this->forms as $form) { ?>
+                <tr>
+                    <td><?= $form['date_added'] ?></td>
+                    <td><?= $form['date_edited'] !== $form['date_added'] ? $form['date_edited'] : '-' ?></td>
+                    <td><?= $form['name'] ?></td>
+                    <td><?= $form['department'] ?></td>
+                    <td><a href="/form?id=<?= $form['id'] ?>">View</a></td>
+                </tr>
+            <? } ?>
+        <? } else { ?>
             <tr>
-                <td><?= $form['date_added'] ?></td>
-                <td><?= $form['date_edited'] !== $form['date_added'] ? $form['date_edited'] : '-' ?></td>
-                <td><?= $form['name'] ?></td>
-                <td><?= $form['department'] ?></td>
-                <td><a href="/form?id=<?= $form['id'] ?>">View</a></td>
+                <td colspan="3">Not submitted forms.</td>
             </tr>
         <? } ?>
-    <? } else { ?>
-        <tr>
-            <td colspan="3">Not submitted forms.</td>
-        </tr>
-    <? } ?>
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
