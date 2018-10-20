@@ -1,7 +1,7 @@
 <form method="POST">
     <?= Renderer::factory('templates/table/description', $this)->render() ?>
 
-    <table class="table table-bordered">
+    <table id="table-form" class="table table-bordered">
         <?= Renderer::factory('templates/table/header', $this)->render() ?>
         <tbody>
         <?= Renderer::factory('templates/table/category-1', $this)->render() ?>
@@ -35,7 +35,7 @@
     </table>
 
     <script>
-        $('input[name^=d], input[name^=e]').numeric({
+        $('#table-form').find('input[name^=d], input[name^=e]').numeric({
             decimal: false,
             negative: false,
             decimalPlaces: -1
