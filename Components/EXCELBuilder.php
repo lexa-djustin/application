@@ -76,6 +76,8 @@ class EXCELBuilder
     private function updateFile()
     {
         foreach ($this->_data as $name => $value) {
+//            $this->PHPExcel->getActiveSheet()->getStyle($name)->getNumberFormat()->setFormatCode
+//            (\PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
             $this->PHPExcel->setActiveSheetIndex(0)->setCellValue($name, $value);
         }
     }

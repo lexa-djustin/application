@@ -88,6 +88,7 @@ class CalculatorDao
         $query = 'SELECT * FROM calculator WHERE user_id = ?';
 
         $stmt = Db::getConnection()->prepare($query);
+
         $stmt->execute([$userId]);
 
         return $stmt->fetchAll();

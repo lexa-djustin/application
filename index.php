@@ -6,10 +6,6 @@ session_start();
 
 define('BASE_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-
 require_once 'PHPExcel/classes/PHPExcel.php';
 require_once 'Autoloader.php';
 
@@ -43,6 +39,9 @@ switch ($page) {
         break;
     case 'admin-profile':
         $controller = new Controllers\AdminProfile();
+        break;
+    case 'admin-user':
+        $controller = new Controllers\AdminUser();
         break;
     case 'index':
     default:

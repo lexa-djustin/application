@@ -15,6 +15,13 @@ abstract class ControllerAbstract
     protected $layoutScript = 'templates/layout';
 
     /**
+     * Set layout script
+     */
+    public function setLayoutScript($layoutScript) {
+        $this->layoutScript = $layoutScript;
+    }
+
+    /**
      * @return bool
      */
     public function hasPermission()

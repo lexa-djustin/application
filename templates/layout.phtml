@@ -16,15 +16,28 @@
 </head>
 <body>
 <div class="container">
-<header>
-    <? if (\Components\Auth::isAuth()) { ?>
-        <div class="auth-info">
-            <span class="username"><a href="/"><?= \Components\Auth::getAuth()['username'] ?></a></span>
-            <span class="logout"><a href="/logout">Logout</a></span>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <? if (\Components\Auth::isAuth()) { ?>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><?= \Components\Auth::getAuth()['username'] ?></a>
+                </div>
+            <? } ?>
+            <ul class="nav navbar-nav">
+                <? if (\Components\Auth::isAuth()) : ?>
+                    <li><a href="/">Home</a></li>
+                <? endif; ?>
+                <? if (\Components\Auth::isAdmin()): ?>
+                    <li><a href="/admin-profile">Admin Profile</a></li>
+                    <li><a href="/admin-user">User Management</a></li>
+                <? endif ?>
+                <? if (\Components\Auth::isAuth()) : ?>
+                    <li><a href="/logout" style="font-weight: 700!important">Logout</a></li>
+                <? endif; ?>
+            </ul>
         </div>
-    <? } ?>
-</header>
-<?= $this->content ?>
+    </nav>
+    <?= $this->content ?>
 </div>
 </body>
 </html>

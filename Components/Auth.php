@@ -65,6 +65,14 @@ class Auth
     }
 
     /**
+     * @return bool
+     */
+    public static function isAdmin()
+    {
+        return $_SESSION['role'] == 'admin';
+    }
+
+    /**
      * @return array
      */
     public static function getAuth()
