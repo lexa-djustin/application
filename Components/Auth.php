@@ -61,7 +61,7 @@ class Auth
      */
     public static function isAuth()
     {
-        return !empty($_SESSION['id']);
+        return isset($_SESSION['id']);
     }
 
     /**
