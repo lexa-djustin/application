@@ -25,7 +25,7 @@
     max-width: 1000px;
 }
 
-.table, .profile-users-form {
+.table {
     max-width: 700px;
     margin: auto;
 }
@@ -96,4 +96,10 @@ header {
 #add-new-form {
     width: 100px;
     margin-top: 10px;
+}
+
+.profile-users-forms {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }

@@ -1,26 +1,24 @@
-<form method="POST" class="profile-users-form">
-    <table class="table table-bordered profile-users-forms">
-        <thead>
-        <th>Created</th>
-        <th>Edited</th>
-        <th>Actions</th>
-        </thead>
-        <tbody>
-        <? if (count($this->forms)) { ?>
-            <? foreach ($this->forms as $form){ ?>
-                <tr>
-                    <td><?= $form['date_added'] ?></td>
-                    <td><?= $form['date_edited'] !== $form['date_added'] ? $form['date_edited'] : '-' ?></td>
-                    <td><a href="/form?id=<?= $form['id'] ?>">Edit or view</a></td>
-                </tr>
-            <? } ?>
-        <? } else { ?>
+<table class="table table-bordered profile-users-forms">
+    <thead>
+    <th>Created</th>
+    <th>Edited</th>
+    <th>Actions</th>
+    </thead>
+    <tbody>
+    <? if (count($this->forms)) { ?>
+        <? foreach ($this->forms as $form) { ?>
             <tr>
-                <td colspan="3">You don't have saved or submitted forms.</td>
+                <td><?= $form['date_added'] ?></td>
+                <td><?= $form['date_edited'] !== $form['date_added'] ? $form['date_edited'] : '-' ?></td>
+                <td><a href="/form?id=<?= $form['id'] ?>">Edit or view</a></td>
             </tr>
         <? } ?>
-        </tbody>
-    </table>
+    <? } else { ?>
+        <tr>
+            <td colspan="3">You don't have saved or submitted forms.</td>
+        </tr>
+    <? } ?>
+    </tbody>
+</table>
 
-    <input id="add-new-form" type="button" value="Add" onclick="location.href='/form'">
-</form>
+<input id="add-new-form" type="button" value="Add" onclick="location.href='/form'">
