@@ -106,3 +106,7 @@ header {
 .table textarea {
     resize: vertical;
 }
+
+.borderless td, .borderless th {
+    border: none !important;
+}

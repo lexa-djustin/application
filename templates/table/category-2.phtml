@@ -1,46 +1,40 @@
-<? $b = 16; $c = $d = $e = $f = 17; ?>
+<? $b = 16;
+$c = $d = $e = $f = 17; ?>
 
 <? for ($i = 1; $i <= 3; $i++) { ?>
     <tr class="sub-row">
         <td colspan="5"><?= \HTMLElements::label("b{$b}", $this->labels) ?></td>
     </tr>
-    <tr class="category-1">
-        <td></td>
-        <td>
-            <?
-            $j = 3;
-            while ($j--) {
-                echo HTMLElements::textarea("c{$c}", $this->data);
-                $c++;
-            }
-            ?>
-        </td>
-        <td>
-            <?
-            $j = 3;
-            while ($j--) {
-                echo HTMLElements::input("d{$d}", $this->data);
-                $d++;
-            }
-            ?>
-        </td>
-        <td>
-            <?
-            $j = 3;
-            while ($j--) {
-                echo HTMLElements::input("e{$e}", $this->data);
-                $e++;
-            }
-            ?>
-        </td>
-        <td>
-            <?
-            $j = 3;
-            while ($j--) {
-                echo '<div class="sub-result">' . HTMLElements::result("f{$f}", $this->data) . '</div>';
-                $f++;
-            }
-            ?>
+    <tr>
+        <td colspan="5">
+            <table class="table borderless" style="width: 100%;">
+                <?
+                $j = 3;
+                while ($j--) { ?>
+                    <tr>
+                        <td width="40%"></td>
+                        <td width="30%">
+                            <?= HTMLElements::textarea("c{$c}", $this->data) ?>
+                        </td>
+                        <td width="10%">
+                            <?= HTMLElements::input("d{$d}", $this->data) ?>
+                        </td>
+                        <td width="10%">
+                            <?= HTMLElements::input("e{$e}", $this->data) ?>
+                        </td>
+                        <td width="10%">
+                            <?= HTMLElements::result("f{$f}", $this->data) ?>
+                        </td>
+                    </tr>
+                    <?
+                    $c++;
+                    $d++;
+                    $e++;
+                    $f++;
+                    ?>
+                <? } ?>
+                </td>
+            </table>
         </td>
     </tr>
     <tr class="sub-row">
