@@ -55,6 +55,7 @@ class Form extends ControllerAbstract
                 $xmlBuilder->createFile();
             }
             if (isset($_POST['saveToDb']) || isset($_POST['submit'])) {
+                unset($data['saveToDb'], $data['submit']);
                 $id = $form ? intval($form['id']) : null;
                 $calculatorDao->save([
                     'data' => json_encode($data),

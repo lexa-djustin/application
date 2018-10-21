@@ -43,6 +43,9 @@ switch ($page) {
     case 'admin-user':
         $controller = new Controllers\AdminUser();
         break;
+    case 'excel':
+        $controller = new Controllers\Excel();
+        break;
     case 'index':
     default:
         $controller = new Controllers\Index();

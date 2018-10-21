@@ -24,7 +24,13 @@
                     <td><?= $form['date_edited'] !== $form['date_added'] ? $form['date_edited'] : '-' ?></td>
                     <td><?= $form['name'] ?></td>
                     <td><?= $form['department'] ?></td>
-                    <td><a href="/form?id=<?= $form['id'] ?>">View</a></td>
+                    <td>
+                        <a href="/form?id=<?= $form['id'] ?>">View</a>
+
+                        /
+
+                        <a href="/excel?id=<?= $form['id'] ?>">Save in Excel</a>
+                    </td>
                 </tr>
             <? } ?>
         <? } else { ?>
