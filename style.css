@@ -56,10 +56,6 @@
     margin-bottom: 30px;
 }
 
-.category-1 div, .category-3-sub-row div {
-    margin-bottom: 3px !important;
-}
-
 .table .sub-column {
     text-align: right;
 }
@@ -105,6 +101,10 @@ header {
 
 .table textarea {
     resize: vertical;
+}
+
+.with-table{
+    padding: 0 !important;
 }
 
 .borderless td, .borderless th {

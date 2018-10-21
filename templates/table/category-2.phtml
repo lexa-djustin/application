@@ -6,8 +6,8 @@ $c = $d = $e = $f = 17; ?>
         <td colspan="5"><?= \HTMLElements::label("b{$b}", $this->labels) ?></td>
     </tr>
     <tr>
-        <td colspan="5">
-            <table class="table borderless" style="width: 100%;">
+        <td colspan="5" class="with-table">
+            <table class="table table-bordered borderless" style="width: 100%;">
                 <?
                 $j = 3;
                 while ($j--) { ?>
@@ -44,6 +44,7 @@ $c = $d = $e = $f = 17; ?>
         <td class="e<?= $e ?>"><?= HTMLElements::result("e{$e}", $this->data) ?></td>
         <td class="f<?= $f ?>"><?= HTMLElements::result("f{$f}", $this->data) ?></td>
         <? $d++;
+        $c++;
         $e++;
         $f++; ?>
     </tr>
