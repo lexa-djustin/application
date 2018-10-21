@@ -1,12 +1,19 @@
 <? for ($row = 64; $row <= 68; $row++) { ?>
     <tr>
-        <td><?= \HTMLElements::label("b{$row}", $this->labels) ?></td>
-        <td><?= HTMLElements::textarea("c{$row}", $this->data); ?></td>
-        <td>
-            <?= HTMLElements::input("d{$row}", $this->data) ?>
+        <td colspan="5" class="with-table">
+            <table class="table table-bordered borderless" style="width: 100%;">
+                <tbody class="inner-body">
+                <td style="vertical-align:middle; width:20%"><?= \HTMLElements::label("b{$row}", $this->labels) ?></td>
+                <td style="vertical-align:middle; width:50%"><?= HTMLElements::textarea("c{$row}", $this->data); ?></td>
+                <td style="vertical-align:middle; width:10%">
+                    <?= HTMLElements::input("d{$row}", $this->data) ?>
+                </td>
+                <td style="vertical-align:middle; width:10%"><?= HTMLElements::input("e{$row}", $this->data) ?></td>
+                <td style="vertical-align:middle; width:10%"><?= HTMLElements::result("f{$row}", $this->data) ?></td>
+                </tbody>
+            </table>
         </td>
-        <td><?= HTMLElements::input("e{$row}", $this->data) ?></td>
-        <td><?= HTMLElements::result("f{$row}", $this->data) ?></td>
+
     </tr>
 <? } ?>
 

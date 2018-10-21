@@ -13,17 +13,17 @@ $c = $d = $e = $f = 17; ?>
                 $j = 3;
                 while ($j--) { ?>
                     <tr>
-                        <td width="20%"></td>
-                        <td width="50%">
+                        <td style="vertical-align:middle; width:20%"></td>
+                        <td style="vertical-align:middle; width:50%">
                             <?= HTMLElements::textarea("c{$c}", $this->data) ?>
                         </td>
-                        <td width="10%">
+                        <td style="vertical-align:middle; width:10%">
                             <?= HTMLElements::input("d{$d}", $this->data) ?>
                         </td>
-                        <td width="10%">
+                        <td style="vertical-align:middle; width:10%">
                             <?= HTMLElements::input("e{$e}", $this->data) ?>
                         </td>
-                        <td width="10%">
+                        <td style="vertical-align:middle; width:10%">
                             <?= HTMLElements::result("f{$f}", $this->data) ?>
                         </td>
                     </tr>

@@ -1,37 +1,39 @@
 <? $i = 4;
 $max = 48;
-$b = $c = $d = $e = $f = 45; ?>
-<tr>
+$a = $b = $c = $d = $e = $f = 45; ?>
+<tr class="sub-row">
     <td colspan="5"><?= \HTMLElements::label("b44", $this->labels) ?></td>
 </tr>
 
-<tr class="category-3-sub-row">
-    <td>
-        <? while ($b <= $max) { ?>
-            <div style="text-align: right;" class="sub-result"><?= \HTMLElements::label("b{$b}", $this->labels) ?></div>
-            <? $b++; ?>
-        <? } ?>
-    </td>
-    <td>
-        <? while ($c <= $max) { ?>
-            <?= HTMLElements::textarea("c{$c}", $this->data); $c++; ?>
-        <? } ?>
-    </td>
-    <td>
-        <? while ($d <= $max) { ?>
-            <?= HTMLElements::input("d{$d}", $this->data); $d++; ?>
-        <? } ?>
-    </td>
-    <td>
-        <? while ($e <= $max) { ?>
-            <?= HTMLElements::input("e{$e}", $this->data); $e++; ?>
-        <? } ?>
-    </td>
-    <td>
-        <? while ($f <= $max) { ?>
-            <div class="sub-result">
-                <?= HTMLElements::result("f{$f}", $this->data); $f++; ?>
-            </div>
-        <? } ?>
-    </td>
-</tr>
+<? while ($a <= $max) { ?>
+    <tr class="category-3-sub-row">
+        <td colspan="5" class="with-table">
+            <table style="width:100%" class="table table-bordered borderless">
+                <tbody class="inner-body">
+                <tr>
+                    <td style="vertical-align:middle; width:20%">
+                        <div style="text-align: right;"
+                             class="sub-result"><?= \HTMLElements::label("b{$a}", $this->labels) ?></div>
+                    </td>
+                    <td style="vertical-align:middle; width:50%">
+                        <?= HTMLElements::textarea("c{$a}", $this->data); ?>
+                    </td>
+                    <td style="vertical-align:middle; width:10%">
+                        <?= HTMLElements::input("d{$a}", $this->data); ?>
+                    </td>
+                    <td style="vertical-align:middle; width:10%">
+                        <?= HTMLElements::input("e{$a}", $this->data); ?>
+                    </td>
+                    <td style="vertical-align:middle; width:10%">
+                        <div class="sub-result">
+                            <?= HTMLElements::result("f{$a}", $this->data); ?>
+                        </div>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <? $a++; ?>
+<? } ?>
