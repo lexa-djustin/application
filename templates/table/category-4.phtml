@@ -9,26 +9,18 @@
     }
     ?>
     <tr>
-        <td colspan="5" class="with-table">
-            <table style="width:100%" class="table table-bordered borderless">
-                <tbody class="inner-body">
-                <tr>
-                    <td style="vertical-align:middle; width:20%"><?= \HTMLElements::label("b{$row}", $this->labels) ?></td>
-                    <td style="vertical-align:middle; width:50%"><?= HTMLElements::textarea("c{$row}", $this->data) ?></td>
-                    <td style="vertical-align:middle; width:10%">
-                        <?= HTMLElements::input("d{$row}", $this->data) ?>
-                    </td>
-                    <td style="vertical-align:middle; width:10%">
-                        <?= HTMLElements::input("e{$row}", $this->data) ?>
-                    </td>
-                    <td style="vertical-align:middle; width:10%"><?= HTMLElements::result("f{$row}", $this->data) ?></td>
-                    <? if ($i === 4) { ?>
-                        <? $row += 4; ?>
-                    <? } ?>
-                </tr>
-                </tbody>
-            </table>
+        <td><?= \HTMLElements::label("b{$row}", $this->labels) ?></td>
+        <td><?= HTMLElements::textarea("c{$row}", $this->data) ?></td>
+        <td>
+            <?= HTMLElements::input("d{$row}", $this->data) ?>
         </td>
+        <td>
+            <?= HTMLElements::input("e{$row}", $this->data) ?>
+        </td>
+        <td><?= HTMLElements::result("f{$row}", $this->data) ?></td>
+        <? if ($i === 4) { ?>
+            <? $row += 4; ?>
+        <? } ?>
     </tr>
 
     <? $row++; ?>
