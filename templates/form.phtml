@@ -46,7 +46,7 @@
 
             $('#table-form').find('input[name^=d], input[name^=e]').on('keyup', function () {
                 var formData = $('#table-form').closest('form').serialize(),
-                    $section = $(this).closest('tbody'),
+                    $section = $(this).closest('tbody:not(.inner-body)'),
                     total = ['d72', 'e72', 'f72'];
 
                 if (jqxhr) {
