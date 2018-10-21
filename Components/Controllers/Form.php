@@ -40,6 +40,13 @@ class Form extends ControllerAbstract
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $calculator = new Calculator($_POST);
             $result = $calculator->calculate();
+
+            if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+                header('Content-Type: application/json');
+                echo json_encode($result);
+                exit();
+            }
+
             $data = array_merge($_POST, $result);
 
             if (isset($_POST['saveToXML'])) {

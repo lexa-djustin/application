@@ -40,5 +40,47 @@
             negative: false,
             decimalPlaces: -1
         });
+
+        $(document).ready(function () {
+            var jqxhr = null;
+
+            $('#table-form').find('input[name^=d], input[name^=e]').on('keyup', function () {
+                var formData = $('#table-form').closest('form').serialize(),
+                    $section = $(this).closest('tbody'),
+                    total = ['d72', 'e72', 'f72'];
+
+                if (jqxhr) {
+                    jqxhr.abort();
+                }
+
+                jqxhr = $.ajax({
+                    url: '/form',
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        if (response !== null && typeof(response) === 'object') {
+                            $section.find('.result').each(function () {
+                                var $elem = $(this),
+                                    id = $elem.attr('id');
+
+                                if (id in response) {
+                                    $elem.html('<b>' + response[id] + '</b>');
+                                }
+                            });
+
+                            $.each(total, function(i, elem){
+                                if (elem in response) {
+                                    $('#' + elem).html('<b>' + response[elem] + '</b>');
+                                }
+                            });
+                        }
+                    },
+                    complete: function () {
+                        jqxhr = null;
+                    }
+                });
+            });
+        });
+
     </script>
 </form>

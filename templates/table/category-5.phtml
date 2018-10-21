@@ -1,6 +1,7 @@
 <? for ($row = 54; $row <= 60; $row++) { ?>
     <tr>
-        <td colspan="2"><?= \HTMLElements::label("b{$row}", $this->labels) ?></td>
+        <td><?= \HTMLElements::label("b{$row}", $this->labels) ?></td>
+        <td><?= HTMLElements::textarea("c{$row}", $this->data); ?></td>
         <td>
             <?= HTMLElements::input("d{$row}", $this->data) ?>
         </td>

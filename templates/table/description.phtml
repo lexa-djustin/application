@@ -26,11 +26,11 @@ $rows = 3; ?>
         <tr>
             <td>
                 <span><?= $c[$row]['title'] ?></span>
-                <?= HTMLElements::input($c[$row]['position'], $this->data) ?>
+                <?= HTMLElements::textarea($c[$row]['position'], $this->data) ?>
             </td>
             <td>
                 <span><?= $e[$row]['title'] ?></span>
-                <?= HTMLElements::input($e[$row]['position'], $this->data) ?>
+                <?= HTMLElements::textarea($e[$row]['position'], $this->data) ?>
             </td>
         </tr>
 
