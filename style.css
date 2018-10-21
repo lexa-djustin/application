@@ -107,6 +107,6 @@ header {
     padding: 0 !important;
 }
 
-.borderless td, .borderless th {
+.borderless, .borderless td, .borderless th {
     border: none !important;
 }
