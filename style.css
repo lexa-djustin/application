@@ -33,6 +33,10 @@
     background-color: #D3D3D3;
 }
 
+.table.header-green thead {
+    background-color: #26b638;
+}
+
 .table .sub-row {
     background-color: #EAEAEA;
 }
