@@ -52,7 +52,7 @@ class Form extends ControllerAbstract
             if (isset($_POST['saveToXML'])) {
                 unset($data['saveToXML']);
                 $xmlBuilder = new EXCELBuilder($data);
-                $xmlBuilder->createFile();
+                $xmlBuilder->toStream();
             }
             if (isset($_POST['saveToDb']) || isset($_POST['submit'])) {
                 unset($data['saveToDb'], $data['submit']);

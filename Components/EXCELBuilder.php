@@ -15,6 +15,11 @@ class EXCELBuilder
     private $data;
 
     /**
+     * @var string
+     */
+    private $dir = 'data';
+
+    /**
      * @var $_PHPExcel
      */
     private $PHPExcel;
@@ -50,13 +55,27 @@ class EXCELBuilder
     }
 
     /**
-     * Create new XML file
+     * Write to output
      */
-    public function createFile()
+    public function toStream()
     {
         $this->openFile();
         $this->updateFile();
-        $this->stream();
+        $this->stram();
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return string
+     * @throws \PHPExcel_Reader_Exception
+     * @throws \PHPExcel_Writer_Exception
+     */
+    public function toFile($name)
+    {
+        $this->openFile();
+        $this->updateFile();
+        return $this->file($name);
     }
 
     /**
@@ -76,8 +95,6 @@ class EXCELBuilder
     private function updateFile()
     {
         foreach ($this->_data as $name => $value) {
-//            $this->PHPExcel->getActiveSheet()->getStyle($name)->getNumberFormat()->setFormatCode
-//            (\PHPExcel_Style_NumberFormat::FORMAT_NUMBER_COMMA_SEPARATED1);
             $this->PHPExcel->setActiveSheetIndex(0)->setCellValue($name, $value);
         }
     }
@@ -110,5 +127,24 @@ class EXCELBuilder
         $objWriter = \PHPExcel_IOFactory::createWriter($this->PHPExcel, $this->getFileType());
         $objWriter->save('php://output');
         exit();
+    }
+
+    /**
+     * Save to file
+     *
+     * @param string $name
+     *
+     * @return string
+     * @throws \PHPExcel_Reader_Exception
+     * @throws \PHPExcel_Writer_Exception
+     */
+    private function file($name)
+    {
+        $path = sprintf('%s.%s', BASE_PATH . $this->dir . DIRECTORY_SEPARATOR . $name, $this->ext);
+
+        $objWriter = new \PHPExcel_Writer_Excel2007($this->PHPExcel);
+        $objWriter->save($path);
+
+        return $path;
     }
 }

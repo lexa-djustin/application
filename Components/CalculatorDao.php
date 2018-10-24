@@ -123,4 +123,17 @@ class CalculatorDao
 
         return $stmt->fetchAll();
     }
+
+    /**
+     * @param array $ids
+     * @return array
+     */
+    public function fetchByIds(array $ids)
+    {
+        $query = 'SELECT * FROM calculator WHERE id IN (' . implode(',', $ids) .  ')';
+        $stmt = Db::getConnection()->prepare($query);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
 }

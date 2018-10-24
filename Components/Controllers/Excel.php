@@ -30,6 +30,6 @@ class Excel extends ControllerAbstract
         }
 
         $xmlBuilder = new EXCELBuilder($data);
-        $xmlBuilder->createFile();
+        $xmlBuilder->toStream();
     }
 }
