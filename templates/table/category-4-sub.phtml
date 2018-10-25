@@ -11,20 +11,20 @@ $a = $b = $c = $d = $e = $f = 45; ?>
             <table style="width:100%" class="table table-bordered borderless">
                 <tbody class="inner-body">
                 <tr>
-                    <td style="vertical-align:middle; width:20%">
+                    <td style="vertical-align:middle; width:30%">
                         <div style="text-align: right;"
                              class="sub-result"><?= \HTMLElements::label("b{$a}", $this->labels) ?></div>
                     </td>
                     <td style="vertical-align:middle; width:50%">
                         <?= HTMLElements::textarea("c{$a}", $this->data); ?>
                     </td>
-                    <td style="vertical-align:middle; width:10%">
+                    <td style="vertical-align:middle; width:7%">
                         <?= HTMLElements::input("d{$a}", $this->data); ?>
                     </td>
-                    <td style="vertical-align:middle; width:10%">
+                    <td style="vertical-align:middle; width:7%">
                         <?= HTMLElements::input("e{$a}", $this->data); ?>
                     </td>
-                    <td style="vertical-align:middle; width:10%">
+                    <td style="vertical-align:middle; width:7%">
                         <div class="sub-result">
                             <?= HTMLElements::result("f{$a}", $this->data); ?>
                         </div>

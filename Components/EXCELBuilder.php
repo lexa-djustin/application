@@ -61,7 +61,7 @@ class EXCELBuilder
     {
         $this->openFile();
         $this->updateFile();
-        $this->stram();
+        $this->stream();
     }
 
     /**

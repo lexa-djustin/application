@@ -101,7 +101,7 @@ $objPHPExcel->getActiveSheet()->setCellValue('A10', 'Boolean value:')
                               ->setCellValue('B10', 'TRUE');
 
 $objPHPExcel->getActiveSheet()->setCellValue('A11', 'Percentage value #1:')
-                              ->setCellValue('B11', '10%');
+                              ->setCellValue('B11', '7%');
 
 $objPHPExcel->getActiveSheet()->setCellValue('A12', 'Percentage value #2:')
                               ->setCellValue('B12', '12.5%');
