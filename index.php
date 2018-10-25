@@ -6,7 +6,7 @@ session_start();
 
 define('BASE_PATH', __DIR__ . DIRECTORY_SEPARATOR);
 
-require_once 'PHPExcel/classes/PHPExcel.php';
+require_once 'PHPExcel/Classes/PHPExcel.php';
 require_once 'Autoloader.php';
 
 $uri = $_SERVER['REQUEST_URI'];
