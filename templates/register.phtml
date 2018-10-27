@@ -5,42 +5,42 @@
     <div class="form-group <?php echo (!empty($this->errors['username'])) ? 'has-error' : ''; ?>">
         <label>Username</label>
         <input type="text" name="username" class="form-control"
-               value="<?= isset($this->params['username']) ? $this->params['username'] : '' ?>">
-        <? if (!empty($this->errors['username'])) { ?>
-            <span class="help-block"><?= $this->errors['username'] ?></span>
-        <? } ?>
+               value="<?php echo isset($this->params['username']) ? $this->params['username'] : '' ?>">
+        <?php if (!empty($this->errors['username'])) { ?>
+            <span class="help-block"><?php echo $this->errors['username'] ?></span>
+        <?php } ?>
     </div>
-    <div class="form-group <?= (!empty($this->errors['email'])) ? 'has-error' : ''; ?>">
+    <div class="form-group <?php echo (!empty($this->errors['email'])) ? 'has-error' : ''; ?>">
         <label>Email</label>
         <input type="text" name="email" class="form-control"
-               value="<?= isset($this->params['email']) ? $this->params['email'] : '' ?>">
-        <? if (!empty($this->errors['email'])) { ?>
-            <span class="help-block"><?= $this->errors['email'] ?></span>
-        <? } ?>
+               value="<?php echo isset($this->params['email']) ? $this->params['email'] : '' ?>">
+        <?php if (!empty($this->errors['email'])) { ?>
+            <span class="help-block"><?php echo $this->errors['email'] ?></span>
+        <?php } ?>
     </div>
     <div class="form-group <?php echo (!empty($this->errors['department'])) ? 'has-error' : ''; ?>">
         <label>Department</label>
         <input type="text" name="department" class="form-control"
-               value="<?= isset($this->params['department']) ? $this->params['department'] : '' ?>">
-        <? if (!empty($this->errors['department'])) { ?>
-            <span class="help-block"><?= $this->errors['department'] ?></span>
-        <? } ?>
+               value="<?php echo isset($this->params['department']) ? $this->params['department'] : '' ?>">
+        <?php if (!empty($this->errors['department'])) { ?>
+            <span class="help-block"><?php echo $this->errors['department'] ?></span>
+        <?php } ?>
     </div>
     <div class="form-group <?php echo (!empty($this->errors['password'])) ? 'has-error' : ''; ?>">
         <label>Password</label>
         <input type="password" name="password" class="form-control"
-               value="<?= isset($this->params['password']) ? $this->params['password'] : '' ?>">
-        <? if (!empty($this->errors['password'])) { ?>
-            <span class="help-block"><?= $this->errors['password']; ?></span>
-        <? } ?>
+               value="<?php echo isset($this->params['password']) ? $this->params['password'] : '' ?>">
+        <?php if (!empty($this->errors['password'])) { ?>
+            <span class="help-block"><?php echo $this->errors['password']; ?></span>
+        <?php } ?>
     </div>
     <div class="form-group <?php echo (!empty($this->errors['confirm_password'])) ? 'has-error' : ''; ?>">
         <label>Confirm Password</label>
         <input type="password" name="confirm_password" class="form-control"
-               value="<?= isset($this->params['confirm_password']) ? $this->params['confirm_password'] : '' ?>">
-        <? if (!empty($this->errors['confirm_password'])) { ?>
-            <span class="help-block"><?= $this->errors['confirm_password']; ?></span>
-        <? } ?>
+               value="<?php echo isset($this->params['confirm_password']) ? $this->params['confirm_password'] : '' ?>">
+        <?php if (!empty($this->errors['confirm_password'])) { ?>
+            <span class="help-block"><?php echo $this->errors['confirm_password']; ?></span>
+        <?php } ?>
     </div>
     <div class="form-group">
         <input type="submit" class="btn btn-primary" value="Submit">

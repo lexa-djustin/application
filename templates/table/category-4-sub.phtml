@@ -1,11 +1,11 @@
-<? $i = 4;
+<?php $i = 4;
 $max = 48;
 $a = $b = $c = $d = $e = $f = 45; ?>
 <tr class="sub-row">
-    <td colspan="5"><?= \HTMLElements::label("b44", $this->labels) ?></td>
+    <td colspan="5"><?php echo \HTMLElements::label("b44", $this->labels) ?></td>
 </tr>
 
-<? while ($a <= $max) { ?>
+<?php while ($a <= $max) { ?>
     <tr class="category-3-sub-row">
         <td colspan="5" class="with-table">
             <table style="width:100%" class="table table-bordered borderless">
@@ -13,20 +13,20 @@ $a = $b = $c = $d = $e = $f = 45; ?>
                 <tr>
                     <td style="vertical-align:middle; width:30%">
                         <div style="text-align: right;"
-                             class="sub-result"><?= \HTMLElements::label("b{$a}", $this->labels) ?></div>
+                             class="sub-result"><?php echo \HTMLElements::label("b{$a}", $this->labels) ?></div>
                     </td>
                     <td style="vertical-align:middle; width:50%">
-                        <?= HTMLElements::textarea("c{$a}", $this->data); ?>
+                        <?php echo HTMLElements::textarea("c{$a}", $this->data); ?>
                     </td>
                     <td style="vertical-align:middle; width:7%">
-                        <?= HTMLElements::input("d{$a}", $this->data); ?>
+                        <?php echo HTMLElements::input("d{$a}", $this->data); ?>
                     </td>
                     <td style="vertical-align:middle; width:7%">
-                        <?= HTMLElements::input("e{$a}", $this->data); ?>
+                        <?php echo HTMLElements::input("e{$a}", $this->data); ?>
                     </td>
                     <td style="vertical-align:middle; width:7%">
                         <div class="sub-result">
-                            <?= HTMLElements::result("f{$a}", $this->data); ?>
+                            <?php echo HTMLElements::result("f{$a}", $this->data); ?>
                         </div>
 
                     </td>
@@ -35,5 +35,5 @@ $a = $b = $c = $d = $e = $f = 45; ?>
             </table>
         </td>
     </tr>
-    <? $a++; ?>
-<? } ?>
+    <?php $a++; ?>
+<?php } ?>

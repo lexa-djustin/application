@@ -22,11 +22,11 @@
 <div class="container">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
-            <? if (\Components\Auth::isAuth()) { ?>
+            <?php if (\Components\Auth::isAuth()) { ?>
                 <div class="navbar-header">
-                    <span class="navbar-brand" href="#"><?= \Components\Auth::getAuth()['username'] ?></span>
+                    <span class="navbar-brand" href="#"><?php echo \Components\Auth::getAuth()['username'] ?></span>
                 </div>
-            <? } ?>
+            <?php } ?>
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
                 <li><a href="/admin-profile">Submitted Forms</a></li>
@@ -35,7 +35,7 @@
             </ul>
         </div>
     </nav>
-    <?= $this->content ?>
+    <?php echo $this->content ?>
 </div>
 </body>
 </html>

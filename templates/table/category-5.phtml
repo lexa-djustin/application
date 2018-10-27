@@ -1,20 +1,20 @@
-<? for ($row = 54; $row <= 60; $row++) { ?>
+<?php for ($row = 54; $row <= 60; $row++) { ?>
     <tr>
-        <td><?= \HTMLElements::label("b{$row}", $this->labels) ?></td>
-        <td><?= HTMLElements::textarea("c{$row}", $this->data); ?></td>
+        <td><?php echo \HTMLElements::label("b{$row}", $this->labels) ?></td>
+        <td><?php echo HTMLElements::textarea("c{$row}", $this->data); ?></td>
         <td>
-            <?= HTMLElements::input("d{$row}", $this->data) ?>
+            <?php echo HTMLElements::input("d{$row}", $this->data) ?>
         </td>
-        <td><?= HTMLElements::input("e{$row}", $this->data) ?></td>
-        <td><?= HTMLElements::result("f{$row}", $this->data) ?></td>
+        <td><?php echo HTMLElements::input("e{$row}", $this->data) ?></td>
+        <td><?php echo HTMLElements::result("f{$row}", $this->data) ?></td>
     </tr>
-<? } ?>
+<?php } ?>
 
 <tr>
     <td colspan="2">
         <b>Total (label)</b>
     </td>
-    <td><?= HTMLElements::result('d62', $this->data) ?></td>
-    <td><?= HTMLElements::result('e62', $this->data) ?></td>
-    <td><?= HTMLElements::result('f62', $this->data) ?></td>
+    <td><?php echo HTMLElements::result('d62', $this->data) ?></td>
+    <td><?php echo HTMLElements::result('e62', $this->data) ?></td>
+    <td><?php echo HTMLElements::result('f62', $this->data) ?></td>
 </tr>

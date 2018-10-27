@@ -11,7 +11,7 @@ $e = [
 ];
 ?>
 
-<? $i = 1;
+<?php $i = 1;
 $j = 4;
 $rows = 3; ?>
 
@@ -22,20 +22,20 @@ $rows = 3; ?>
     </tr>
     </thead>
     <tbody>
-    <? for ($row = 1; $row <= $rows; $row++) { ?>
+    <?php for ($row = 1; $row <= $rows; $row++) { ?>
         <tr>
             <td>
-                <span><?= $c[$row]['title'] ?></span>
-                <?= HTMLElements::textarea($c[$row]['position'], $this->data) ?>
+                <span><?php echo $c[$row]['title'] ?></span>
+                <?php echo HTMLElements::textarea($c[$row]['position'], $this->data) ?>
             </td>
             <td>
-                <span><?= $e[$row]['title'] ?></span>
-                <?= HTMLElements::textarea($e[$row]['position'], $this->data) ?>
+                <span><?php echo $e[$row]['title'] ?></span>
+                <?php echo HTMLElements::textarea($e[$row]['position'], $this->data) ?>
             </td>
         </tr>
 
-        <? $i++;
+        <?php $i++;
         $j++; ?>
-    <? } ?>
+    <?php } ?>
     </tbody>
 </table>

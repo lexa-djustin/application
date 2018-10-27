@@ -1,33 +1,33 @@
 <form method="POST">
-    <?= Renderer::factory('templates/table/description', $this)->render() ?>
+    <?php echo Renderer::factory('templates/table/description', $this)->render() ?>
 
     <table id="table-form" class="table table-bordered header-green">
-        <?= Renderer::factory('templates/table/header', $this)->render() ?>
+        <?php echo Renderer::factory('templates/table/header', $this)->render() ?>
         <tbody>
-        <?= Renderer::factory('templates/table/category-1', $this)->render() ?>
+        <?php echo Renderer::factory('templates/table/category-1', $this)->render() ?>
 
-        <?= Renderer::factory('templates/table/header', $this)->render() ?>
-        <?= Renderer::factory('templates/table/category-2', $this)->render() ?>
+        <?php echo Renderer::factory('templates/table/header', $this)->render() ?>
+        <?php echo Renderer::factory('templates/table/category-2', $this)->render() ?>
 
-        <?= Renderer::factory('templates/table/header', $this)->render() ?>
-        <?= Renderer::factory('templates/table/category-3', $this)->render() ?>
+        <?php echo Renderer::factory('templates/table/header', $this)->render() ?>
+        <?php echo Renderer::factory('templates/table/category-3', $this)->render() ?>
 
-        <?= Renderer::factory('templates/table/header', $this)->render() ?>
-        <?= Renderer::factory('templates/table/category-4', $this)->render() ?>
+        <?php echo Renderer::factory('templates/table/header', $this)->render() ?>
+        <?php echo Renderer::factory('templates/table/category-4', $this)->render() ?>
 
-        <?= Renderer::factory('templates/table/header', $this)->render() ?>
-        <?= Renderer::factory('templates/table/category-5', $this)->render() ?>
+        <?php echo Renderer::factory('templates/table/header', $this)->render() ?>
+        <?php echo Renderer::factory('templates/table/category-5', $this)->render() ?>
 
-        <?= Renderer::factory('templates/table/header', $this)->render() ?>
-        <?= Renderer::factory('templates/table/category-6', $this)->render() ?>
+        <?php echo Renderer::factory('templates/table/header', $this)->render() ?>
+        <?php echo Renderer::factory('templates/table/category-6', $this)->render() ?>
 
         <tr>
             <td colspan="5">
-                <? if (empty($this->data['submitted'])) { ?>
+                <?php if (empty($this->data['submitted'])) { ?>
                     <input type="submit" value="Calculate">
                     <input type="submit" value="Save to data base" name="saveToDb">
                     <input type="submit" value="Submit" name="submit">
-                <? } ?>
+                <?php } ?>
                 <input type="submit" value="Save to XML" name="saveToXML">
             </td>
         </tr>

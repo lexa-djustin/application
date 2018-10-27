@@ -11,17 +11,17 @@
 
     <div class="form-group <?php echo (!empty($this->errors['email'])) ? 'has-error' : ''; ?>">
         <label>Email</label>
-        <input type="text" name="email" class="form-control" value="<?= $this->email; ?>">
-        <? if (!empty($this->errors['email'])) { ?>
-            <span class="help-block"><?= $this->errors['email']; ?></span>
-        <? } ?>
+        <input type="text" name="email" class="form-control" value="<?php echo $this->email; ?>">
+        <?php if (!empty($this->errors['email'])) { ?>
+            <span class="help-block"><?php echo $this->errors['email']; ?></span>
+        <?php } ?>
     </div>
-    <div class="form-group <?= (!empty($this->errors['password'])) ? 'has-error' : ''; ?>">
+    <div class="form-group <?php echo (!empty($this->errors['password'])) ? 'has-error' : ''; ?>">
         <label>Password</label>
         <input type="password" name="password" class="form-control">
-        <? if (!empty($this->errors['password'])) { ?>
-            <span class="help-block"><?= $this->errors['password']; ?></span>
-        <? } ?>
+        <?php if (!empty($this->errors['password'])) { ?>
+            <span class="help-block"><?php echo $this->errors['password']; ?></span>
+        <?php } ?>
     </div>
     <div class="form-group">
         <input type="submit" class="btn btn-primary" value="Login">

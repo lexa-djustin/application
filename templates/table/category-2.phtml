@@ -1,69 +1,69 @@
-<? $b = 16;
+<?php $b = 16;
 $c = $d = $e = $f = 17; ?>
 
-<? for ($i = 1; $i <= 3; $i++) { ?>
+<?php for ($i = 1; $i <= 3; $i++) { ?>
     <tr class="">
-        <td colspan="5"><?= \HTMLElements::label("b{$b}", $this->labels) ?></td>
+        <td colspan="5"><?php echo \HTMLElements::label("b{$b}", $this->labels) ?></td>
     </tr>
     <tr>
         <td colspan="5" class="with-table">
             <table class="table table-bordered borderless" style="width: 100%;">
                 <tbody class="inner-body">
-                <?
+                <?php
                 $j = 3;
                 while ($j--) { ?>
                     <tr>
                         <td style="vertical-align:middle; width:30%"></td>
                         <td style="vertical-align:middle; width:50%">
-                            <?= HTMLElements::textarea("c{$c}", $this->data) ?>
+                            <?php echo HTMLElements::textarea("c{$c}", $this->data) ?>
                         </td>
                         <td style="vertical-align:middle; width:7%">
-                            <?= HTMLElements::input("d{$d}", $this->data) ?>
+                            <?php echo HTMLElements::input("d{$d}", $this->data) ?>
                         </td>
                         <td style="vertical-align:middle; width:7%">
-                            <?= HTMLElements::input("e{$e}", $this->data) ?>
+                            <?php echo HTMLElements::input("e{$e}", $this->data) ?>
                         </td>
                         <td style="vertical-align:middle; width:7%%">
-                            <?= HTMLElements::result("f{$f}", $this->data) ?>
+                            <?php echo HTMLElements::result("f{$f}", $this->data) ?>
                         </td>
                     </tr>
-                    <?
+                    <?php
                     $c++;
                     $d++;
                     $e++;
                     $f++;
                     ?>
-                <? } ?>
+                <?php } ?>
                 </td>
                 </tbody>
             </table>
         </td>
     </tr>
     <tr class="sub-row">
-        <? $b += 4; ?>
-        <td colspan="2">Total (<?= \HTMLElements::label("b{$b}", $this->labels) ?>)</td>
-        <td class="d<?= $d ?>"><?= HTMLElements::result("d{$d}", $this->data) ?></td>
-        <td class="e<?= $e ?>"><?= HTMLElements::result("e{$e}", $this->data) ?></td>
-        <td class="f<?= $f ?>"><?= HTMLElements::result("f{$f}", $this->data) ?></td>
-        <? $d++;
+        <?php $b += 4; ?>
+        <td colspan="2">Total (<?php echo \HTMLElements::label("b{$b}", $this->labels) ?>)</td>
+        <td class="d<?php echo $d ?>"><?php echo HTMLElements::result("d{$d}", $this->data) ?></td>
+        <td class="e<?php echo $e ?>"><?php echo HTMLElements::result("e{$e}", $this->data) ?></td>
+        <td class="f<?php echo $f ?>"><?php echo HTMLElements::result("f{$f}", $this->data) ?></td>
+        <?php $d++;
         $c++;
         $e++;
         $f++; ?>
     </tr>
 
-    <?
+    <?php
     $b++;
     $c++;
     $d++;
     $e++;
     $f++;
     ?>
-<? } ?>
+<?php } ?>
 <tr>
     <td colspan="2">
-        <b>Total (<?= \HTMLElements::label("b32", $this->labels) ?>)</b>
+        <b>Total (<?php echo \HTMLElements::label("b32", $this->labels) ?>)</b>
     </td>
-    <td><?= HTMLElements::result('d32', $this->data) ?></td>
-    <td><?= HTMLElements::result('e32', $this->data) ?></td>
-    <td><?= HTMLElements::result('f32', $this->data) ?></td>
+    <td><?php echo HTMLElements::result('d32', $this->data) ?></td>
+    <td><?php echo HTMLElements::result('e32', $this->data) ?></td>
+    <td><?php echo HTMLElements::result('f32', $this->data) ?></td>
 </tr>

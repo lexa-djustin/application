@@ -5,19 +5,19 @@
     <th>Actions</th>
     </thead>
     <tbody>
-    <? if (count($this->forms)) { ?>
-        <? foreach ($this->forms as $form) { ?>
+    <?php if (count($this->forms)) { ?>
+        <?php foreach ($this->forms as $form) { ?>
             <tr>
-                <td><?= $form['date_added'] ?></td>
-                <td><?= $form['date_edited'] !== $form['date_added'] ? $form['date_edited'] : '-' ?></td>
-                <td><a href="/form?id=<?= $form['id'] ?>">Edit or view</a></td>
+                <td><?php echo $form['date_added'] ?></td>
+                <td><?php echo $form['date_edited'] !== $form['date_added'] ? $form['date_edited'] : '-' ?></td>
+                <td><a href="/form?id=<?php echo $form['id'] ?>">Edit or view</a></td>
             </tr>
-        <? } ?>
-    <? } else { ?>
+        <?php } ?>
+    <?php } else { ?>
         <tr>
             <td colspan="3">You don't have saved or submitted forms.</td>
         </tr>
-    <? } ?>
+    <?php } ?>
     </tbody>
 </table>
 
