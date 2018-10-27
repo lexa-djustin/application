@@ -11,7 +11,7 @@ class Login extends ControllerAbstract
      */
     public function execute()
     {
-        $redirectTo = '/';
+        $redirectTo = '/calculator/';
 
         if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
             header("location: {$redirectTo}");

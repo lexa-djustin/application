@@ -52,7 +52,7 @@ switch ($page) {
 }
 
 if (!$controller->hasPermission()) {
-    header('Location: login');
+    header('Location: login/login');
     exit();
 }
 

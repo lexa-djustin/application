@@ -92,7 +92,7 @@ class Auth
         $_SESSION = [];
         session_destroy();
 
-        header("location: login");
+        header("location: calculator/login");
         exit;
     }
 

@@ -55,7 +55,7 @@ class AdminUser extends ControllerAbstract
                 $userId = $_GET['id'];
                 if ($userId != 1) {
                     if ($user->delete($userId)) {
-                        header('Location: /admin-user');
+                        header('Location: /calculator/admin-user');
                     } else {
                         $errors[] = 'User can\'t be delete';
                     }
@@ -101,7 +101,7 @@ class AdminUser extends ControllerAbstract
                 unset($_POST['id']);
 
                 $user->save($_POST, $id);
-                header('Location: /admin-user');
+                header('Location: /calculator/admin-user');
                 exit();
             }
         }

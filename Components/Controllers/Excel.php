@@ -18,14 +18,14 @@ class Excel extends ControllerAbstract
         $form = $calculatorDao->findByUserIdAndFormId(null, $_GET['id']);
 
         if (!$form) {
-            header('Location: /admin-profile');
+            header('Location: /calculator/admin-profile');
             exit();
         }
 
         $data = json_decode($form['data'], true);
 
         if (!is_array($data)) {
-            header('Location: /admin-profile');
+            header('Location: /calculator/admin-profile');
             exit();
         }
 

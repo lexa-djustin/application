@@ -55,7 +55,7 @@ class Register extends ControllerAbstract
             if (empty($errors)) {
                 $result = $registerObject->register($params);
                 if ($result->getStatus() == 1) {
-                    header("location: login");
+                    header("location: calculator/login");
                     exit();
                 } else {
                     $errors = $result->getMessages();

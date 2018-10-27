@@ -63,7 +63,7 @@ class Form extends ControllerAbstract
                     'submitted' => !empty($_POST['submit']) ? 1 : 0,
                 ], $id);
 
-                header('Location: /');
+                header('Location: /calculator');
                 exit();
             }
         } else if (!empty($_GET['id'])) {
@@ -71,7 +71,7 @@ class Form extends ControllerAbstract
                 $data = json_decode($form['data'], true);
                 $data = array_merge($data, $form);
             } else {
-                header('Location: /');
+                header('Location: /calculator');
                 exit();
             }
         }
